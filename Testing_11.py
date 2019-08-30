@@ -249,8 +249,8 @@ class Brisesolette(App):
         logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
         LCLayout.add_widget(logo)
 
-        LCButton= ToggleButton(text = "Light Cycling")
-        LCButton.bind(on_press = press_callback())
+        LCLayout.LCButton = ToggleButton(text = "Light Cycling")
+        LCLayout.LCButton.bind(on_press = press_callback())
         LCLayout.add_widget(LCLayout.LCButton)
 
         # Adding elements to LCLayout
