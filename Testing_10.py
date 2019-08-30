@@ -1,5 +1,3 @@
-#GITHUB Testing
-
 #Status 1 = clear, 0 = opaque
 #Output: LOW = Clear, HIGH = Opaque,
 #Button Press: 'down' = Clear, 'normal' = Opaque
@@ -15,11 +13,11 @@ except:
     
 #Setup Pinmodes
 led = 13
-BaseSidesPin = 2
-BasefbPin = 3
-TopfbPin = 4
-TopPin = 5
-TopSidesPin = 6
+BaseSidesPin = 6
+BasefbPin = 5
+TopfbPin = 2
+TopPin = 3
+TopSidesPin = 4
 
 a.pinMode(led, a.OUTPUT)
 a.pinMode(BaseSidesPin, a.OUTPUT)
@@ -104,14 +102,14 @@ def LightCycling(obj):
         a.digitalWrite(TopfbPin, a.LOW)
         a.digitalWrite(TopPin, a.LOW)
         a.digitalWrite(TopSidesPin, a.LOW)
-        sleep(1)
+        sleep(3)
     
         a.digitalWrite(BaseSidesPin, a.HIGH)
         a.digitalWrite(BasefbPin, a.HIGH)
         a.digitalWrite(TopfbPin, a.HIGH)
         a.digitalWrite(TopPin, a.HIGH)
         a.digitalWrite(TopSidesPin, a.HIGH)
-        sleep(1)
+        sleep(3)
     
     teststatus()
     
@@ -254,9 +252,6 @@ class Brisesolette(App):
         VLC.add_widget(VLCLayout) #Adding layout to VLC
         
         root.add_widget(VLC) #Adding VLC Accordion Tab
-
-        #VItals Tab -----------------------------------------------------------
-
 
         return root
 

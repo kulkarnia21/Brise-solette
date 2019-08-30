@@ -1,5 +1,3 @@
-#GITHUB Testing
-
 #Status 1 = clear, 0 = opaque
 #Output: LOW = Clear, HIGH = Opaque,
 #Button Press: 'down' = Clear, 'normal' = Opaque
@@ -44,9 +42,6 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.accordion import Accordion, AccordionItem
 from kivy.uix.label import Label
-from kivy.uix.image import Image
-from kivy.uix.button import Button
-
 #---------------------------------------------------------------------------
 
 ##function to test all status
@@ -59,62 +54,43 @@ def teststatus():
     global TopSidesStatus
     
     if AllStatus == 1:
-        a.digitalWrite(BaseSidesPin, a.HIGH)
-        a.digitalWrite(BasefbPin, a.HIGH)
-        a.digitalWrite(TopfbPin, a.HIGH)
-        a.digitalWrite(TopPin, a.HIGH)
-        a.digitalWrite(TopSidesPin, a.HIGH)
-        
-        
-    else:        
-        if BaseSidesStatus == 1:
-            a.digitalWrite(BaseSidesPin, a.HIGH)
-        else:
-            a.digitalWrite(BaseSidesPin, a.LOW)
-               
-        if BasefbStatus == 1:
-            a.digitalWrite(BasefbPin, a.HIGH)
-        else:
-            a.digitalWrite(BasefbPin, a.LOW)   
-    
-        if TopfbStatus == 1:
-            a.digitalWrite(TopfbPin, a.HIGH)
-        else:
-            a.digitalWrite(TopfbPin, a.LOW)
-        
-        if TopStatus == 1:
-            a.digitalWrite(TopPin, a.HIGH)
-        else:
-            a.digitalWrite(TopPin, a.LOW)
-              
-        if TopSidesStatus == 1:
-            a.digitalWrite(TopSidesPin, a.HIGH)
-        else:
-            a.digitalWrite(TopSidesPin, a.LOW)
-            
-# End of function to test all statuses---------------------------------------------
-
-
-#Define Callback for Toggle
-def LightCycling(obj):
-    #Callback for Light Cycling
-    for i in range(3):
         a.digitalWrite(BaseSidesPin, a.LOW)
         a.digitalWrite(BasefbPin, a.LOW)
         a.digitalWrite(TopfbPin, a.LOW)
         a.digitalWrite(TopPin, a.LOW)
         a.digitalWrite(TopSidesPin, a.LOW)
-        sleep(1)
+        
+        
+    else:        
+        if BaseSidesStatus == 1:
+            a.digitalWrite(BaseSidesPin, a.LOW)
+        else:
+            a.digitalWrite(BaseSidesPin, a.HIGH)
+               
+        if BasefbStatus == 1:
+            a.digitalWrite(BasefbPin, a.LOW)
+        else:
+            a.digitalWrite(BasefbPin, a.HIGH)   
     
-        a.digitalWrite(BaseSidesPin, a.HIGH)
-        a.digitalWrite(BasefbPin, a.HIGH)
-        a.digitalWrite(TopfbPin, a.HIGH)
-        a.digitalWrite(TopPin, a.HIGH)
-        a.digitalWrite(TopSidesPin, a.HIGH)
-        sleep(1)
-    
-    teststatus()
-    
+        if TopfbStatus == 1:
+            a.digitalWrite(TopfbPin, a.LOW)
+        else:
+            a.digitalWrite(TopfbPin, a.HIGH)
+        
+        if TopStatus == 1:
+            a.digitalWrite(TopPin, a.LOW)
+        else:
+            a.digitalWrite(TopPin, a.HIGH)
+              
+        if TopSidesStatus == 1:
+            a.digitalWrite(TopSidesPin, a.LOW)
+        else:
+            a.digitalWrite(TopSidesPin, a.HIGH)
+            
+# End of function to test all statuses---------------------------------------------
+
+
+#Define Callback for Toggle
 def press_callback(obj):
     #Callback for All Function
     if(obj.text == 'All'):
@@ -193,44 +169,43 @@ def press_callback(obj):
 class Brisesolette(App):
     def build(self):
         root = Accordion(orientation='vertical')
+        
+#        item_1 = AccordionItem(title='Title 1')
+#        item_1.add_widget(Label(text='Very big content\n' *10))
+#        root.add_widget(item_1)
+        
         #Building manual Control Tab
-        ManualControl = AccordionItem(title='Manual Control',)
-        
-        #Adding Layout Layer
-        Layout=GridLayout(cols=3)
-        
+        ManualControl = AccordionItem(title='Manual Control')
         #Build All Button
-        Layout.All = ToggleButton(text= 'All', state='down')
-        Layout.All.bind(on_press = press_callback)
-        Layout.add_widget(Layout.All)
+        ManualControl.All = ToggleButton(text= 'All', state='down')
+        ManualControl.All.bind(on_press = press_callback)
+        ManualControl.add_widget(ManualControl.All)
         
         #Build Top F/B Button
-        Layout.Top_fb = ToggleButton(text= 'Top f/b')
-        Layout.Top_fb.bind(on_press = press_callback)
-        Layout.add_widget(Layout.Top_fb)
+        ManualControl.Top_fb = ToggleButton(text= 'Top f/b')
+        ManualControl.Top_fb.bind(on_press = press_callback)
+        ManualControl.add_widget(ManualControl.Top_fb)
         
         #Build Base F/B Button
-        Layout.Base_fb = ToggleButton(text='Base f/b')
-        Layout.Base_fb.bind(on_press = press_callback)
-        Layout.add_widget(Layout.Base_fb)
+        ManualControl.Base_fb = ToggleButton(text='Base f/b')
+        ManualControl.Base_fb.bind(on_press = press_callback)
+        ManualControl.add_widget(ManualControl.Base_fb)
         
         #Build Top Button
-        Layout.Top = ToggleButton(text = 'Top')
-        Layout.Top.bind(on_press = press_callback)
-        Layout.add_widget(Layout.Top)
+        ManualControl.Top = ToggleButton(text = 'Top')
+        ManualControl.Top.bind(on_press = press_callback)
+        ManualControl.add_widget(ManualControl.Top)
         
         #Build Base Sides Button
-        Layout.BaseSides = ToggleButton(text= 'Base Sides')
-        Layout.BaseSides.bind(on_press = press_callback)
-        Layout.add_widget(Layout.BaseSides)
+        ManualControl.BaseSides = ToggleButton(text= 'Base Sides')
+        ManualControl.BaseSides.bind(on_press = press_callback)
+        ManualControl.add_widget(ManualControl.BaseSides)
         
         #Build Top Sides Button
-        Layout.TopSides = ToggleButton(text = 'Top Sides')
-        Layout.TopSides.bind(on_press = press_callback)
-        Layout.add_widget(Layout.TopSides)
-
-        #Adding Buttons to Manual Control
-        ManualControl.add_widget(Layout)
+        ManualControl.TopSides = ToggleButton(text = 'Top Sides')
+        ManualControl.TopSides.bind(on_press = press_callback)
+        ManualControl.add_widget(ManualControl.TopSides)
+        
         #Add Accordion Tab
         root.add_widget(ManualControl)
         #End of Manual Control Tab---------------------------------------------
@@ -238,32 +213,12 @@ class Brisesolette(App):
         
         #Vitals and Light Cycling Tab
         VLC = AccordionItem(title='Vitals and Light Cycling')
-        
-        #Declaring Elements
-        logo= Image(source='Brise-solette_Logo.png', allow_stretch='True')
-        
-        LCButton= Button(text = "Light Cycling")
-        LCButton.bind(on_press = LightCycling)
-        
-        
-        # Adding elements to VLCLayout
-        VLCLayout = GridLayout(cols=2)
-        VLCLayout.add_widget(logo)
-        VLCLayout.add_widget(LCButton)
-        
-        VLC.add_widget(VLCLayout) #Adding layout to VLC
-        
-        root.add_widget(VLC) #Adding VLC Accordion Tab
-
-        #VItals Tab -----------------------------------------------------------
-
+        root.add_widget(VLC)
 
         return root
 
 
 if __name__ == '__main__':
-    Window.show_cursor = False
     Window.size = (800,480)
     Window.fullscreen = True
     Brisesolette().run()
-
