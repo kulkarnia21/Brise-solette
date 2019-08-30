@@ -241,21 +241,21 @@ class Brisesolette(App):
         # Light Cycling Tab-----------------------------------------------------
 
         LC = AccordionItem(title='Light Cycling')
-        
+        LCLayout = GridLayout(cols=2)
+
         #Declaring Elements
         logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
-        
-        LCButton= Button(text = "Light Cycling")
-        LCButton.bind(on_press = LightCycling)
-        
-        # Adding elements to LCLayout
-        LCLayout = GridLayout(cols=2)
         LCLayout.add_widget(logo)
+
+        LCButton= ToggleButton(text = "Light Cycling")
+        LCButton.bind(on_press = LightCycling)
         LCLayout.add_widget(LCButton)
+
+        # Adding elements to LCLayout
+
+        LC.add_widget(LCLayout)  # Adding layout to LC
         
-        LC.add_widget(LCLayout) # Adding layout to LC
-        
-        root.add_widget(LC) # Adding LC Accordion Tab
+        root.add_widget(LC)  # Adding LC Accordion Tab
 
         # End of Light Cycling Tab----------------------------------------------
 
