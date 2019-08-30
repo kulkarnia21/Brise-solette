@@ -1,7 +1,3 @@
-#GITHUB Testing
-#Breh
-
-
 #Status 1 = clear, 0 = opaque
 #Output: LOW = Clear, HIGH = Opaque,
 #Button Press: 'down' = Clear, 'normal' = Opaque
@@ -257,7 +253,8 @@ class Brisesolette(App):
         
         root.add_widget(VLC) #Adding VLC Accordion Tab
 
-        #VItals Tab -----------------------------------------------------------
+        #Vitals Tab -----------------------------------------------------------
+
 
 
         return root
