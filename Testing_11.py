@@ -254,8 +254,7 @@ class Brisesolette(App):
 
         #Vitals Tab -----------------------------------------------------------
         Vitals = AccordionItem(title='Vitals')
-        VitalsLayout = GridLayout (cols = 2 )
-        VitalsLayout.add_widget (logo)
+        VitalsLayout = GridLayout(cols=2)
 
         root.add_widget(VitalsLayout) #Adding layout to Vitals
 
