@@ -172,23 +172,24 @@ def press_callback(obj):
     # Callback for Light Cycling
     if(obj.text == 'Light Cycling'):
         #while (obj.state == "down"):
-            # for i in range(3):
-        #    a.digitalWrite(BaseSidesPin, a.LOW)
-        #    a.digitalWrite(BasefbPin, a.LOW)
-        #    a.digitalWrite(TopfbPin, a.LOW)
-        #    a.digitalWrite(TopPin, a.LOW)
-        #    a.digitalWrite(TopSidesPin, a.LOW)
-        #    sleep(1)
+            for i in range(3):
+            a.digitalWrite(BaseSidesPin, a.LOW)
+            a.digitalWrite(BasefbPin, a.LOW)
+            a.digitalWrite(TopfbPin, a.LOW)
+            a.digitalWrite(TopPin, a.LOW)
+            a.digitalWrite(TopSidesPin, a.LOW)
+            sleep(1)
 
-            #a.digitalWrite(BaseSidesPin, a.HIGH)
-            #a.digitalWrite(BasefbPin, a.HIGH)
-            #a.digitalWrite(TopfbPin, a.HIGH)
-            #a.digitalWrite(TopPin, a.HIGH)
-            #a.digitalWrite(TopSidesPin, a.HIGH)
-            #sleep(1)
+            a.digitalWrite(BaseSidesPin, a.HIGH)
+            a.digitalWrite(BasefbPin, a.HIGH)
+            a.digitalWrite(TopfbPin, a.HIGH)
+            a.digitalWrite(TopPin, a.HIGH)
+            a.digitalWrite(TopSidesPin, a.HIGH)
+            sleep(1)
         #else:
             #teststatus()
     # End of Light Cycling Callback-----------------------------------------
+
 # End of Callback functions
 
 
