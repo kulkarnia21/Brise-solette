@@ -170,7 +170,7 @@ def press_callback(obj):
     # End of Base Sides Callback--------------------------------------------
 
     # Callback for Light Cycling
-    if(obj.text == 'LightCycling'):
+    if(obj.text == 'Light Cycling'):
         while (obj.state == "down"):
             # for i in range(3):
             a.digitalWrite(BaseSidesPin, a.LOW)
