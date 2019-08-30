@@ -266,7 +266,7 @@ class Brisesolette(App):
         VitalsLayout = GridLayout(cols=2)
 
         #Adding elements
-        VItalsLayout.add_widget(logo)
+        VitalsLayout.add_widget(logo)
 
         root.add_widget(VitalsLayout) #Adding layout to Vitals
 
