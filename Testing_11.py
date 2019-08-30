@@ -250,7 +250,7 @@ class Brisesolette(App):
         LCLayout.add_widget(logo)
 
         LCButton= ToggleButton(text = "Light Cycling")
-        LCButton.bind(on_press = LightCycling)
+        LCButton.bind(on_press = press_callback())
         LCLayout.add_widget(LCButton)
 
         # Adding elements to LCLayout
