@@ -231,6 +231,7 @@ class Brisesolette(App):
         ManualControl.add_widget(Layout)
         #Add Accordion Tab
         root.add_widget(ManualControl)
+
         #End of Manual Control Tab---------------------------------------------
         
         
@@ -253,8 +254,19 @@ class Brisesolette(App):
         root.add_widget(LC) #Adding VLC Accordion Tab
 
         #Vitals Tab -----------------------------------------------------------
+
         Vitals = AccordionItem(title='Vitals')
+
+        #Declare Elements
+        # Declaring Elements
+        logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
+
+
+        #Setting up grid layout
         VitalsLayout = GridLayout(cols=2)
+
+        #Adding elements
+        VItalsLayout.add_widget(logo)
 
         root.add_widget(VitalsLayout) #Adding layout to Vitals
 
