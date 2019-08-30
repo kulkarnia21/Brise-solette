@@ -33,7 +33,35 @@ TopfbStatus = 0
 TopStatus = 0
 TopSidesStatus = 0
 
-LightCyclingStatus = 0
+interval = 3
+Timer = 0
+
+#Adding Function for light cycling-------------------------------------------------
+global LightCyclingStatus = 0
+def cycling():
+    global Timer
+    if(LightCyclingStatus == 1):
+        if((Timer%interval) == 0):
+            if ((Timer/3) %2 == 0):
+                a.digitalWrite(BaseSidesPin, a.LOW)
+                a.digitalWrite(BasefbPin, a.LOW)
+                a.digitalWrite(TopfbPin, a.LOW)
+                a.digitalWrite(TopPin, a.LOW)
+                a.digitalWrite(TopSidesPin, a.LOW)
+            else:
+                a.digitalWrite(BaseSidesPin, a.HIGH)
+                a.digitalWrite(BasefbPin, a.HIGH)
+                a.digitalWrite(TopfbPin, a.HIGH)
+                a.digitalWrite(TopPin, a.HIGH)
+                a.digitalWrite(TopSidesPin, a.HIGH)
+                Timer = Timer + 1
+        else:
+            Timer = Timer + 1
+    else:
+        Timer = 0
+        teststatus()
+
+Clock.schedule_interval(cycling, 1)
 
 #---------------------------------------------------------------------------
 
@@ -50,8 +78,6 @@ from kivy.uix.button import Button
 
 
 #---------------------------------------------------------------------------
-
-
 ##function to test all status
 def teststatus():
     global AllStatus
@@ -60,7 +86,7 @@ def teststatus():
     global TopfbStatus
     global TopStatus
     global TopSidesStatus
-    
+
     if AllStatus == 1:
         a.digitalWrite(BaseSidesPin, a.HIGH)
         a.digitalWrite(BasefbPin, a.HIGH)
@@ -96,25 +122,6 @@ def teststatus():
             a.digitalWrite(TopSidesPin, a.LOW)
             
 # End of function to test all statuses---------------------------------------------
-
-#Adding Function for light cycling-------------------------------------------------
-def cycling():
-    while(LightCyclingStatus == 1):
-        a.digitalWrite(BaseSidesPin, a.LOW)
-        a.digitalWrite(BasefbPin, a.LOW)
-        a.digitalWrite(TopfbPin, a.LOW)
-        a.digitalWrite(TopPin, a.LOW)
-        a.digitalWrite(TopSidesPin, a.LOW)
-        sleep(3)
-
-        a.digitalWrite(BaseSidesPin, a.HIGH)
-        a.digitalWrite(BasefbPin, a.HIGH)
-        a.digitalWrite(TopfbPin, a.HIGH)
-        a.digitalWrite(TopPin, a.HIGH)
-        a.digitalWrite(TopSidesPin, a.HIGH)
-        sleep(3)
-    else:
-        teststatus()
 
 # Define Callback for Toggle-------------------------------------------------------
 
@@ -196,20 +203,6 @@ def press_callback(obj):
         if obj.state == "down":
             global LightCyclingStatus
             LightCyclingStatus = 1
-            for i in range (3):
-                a.digitalWrite(BaseSidesPin, a.LOW)
-                a.digitalWrite(BasefbPin, a.LOW)
-                a.digitalWrite(TopfbPin, a.LOW)
-                a.digitalWrite(TopPin, a.LOW)
-                a.digitalWrite(TopSidesPin, a.LOW)
-                sleep(3)
-
-                a.digitalWrite(BaseSidesPin, a.HIGH)
-                a.digitalWrite(BasefbPin, a.HIGH)
-                a.digitalWrite(TopfbPin, a.HIGH)
-                a.digitalWrite(TopPin, a.HIGH)
-                a.digitalWrite(TopSidesPin, a.HIGH)
-                sleep(3)
         else:
             global LightCyclingStatus
             LightCyclingStatus = 0
