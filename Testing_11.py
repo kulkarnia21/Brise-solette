@@ -95,26 +95,7 @@ def teststatus():
 
 
 # Define Callback for Toggle
-def LightCycling(obj):
-    # Callback for Light Cycling
-    while(obj.state== "down"):
-    #for i in range(3):
-        a.digitalWrite(BaseSidesPin, a.LOW)
-        a.digitalWrite(BasefbPin, a.LOW)
-        a.digitalWrite(TopfbPin, a.LOW)
-        a.digitalWrite(TopPin, a.LOW)
-        a.digitalWrite(TopSidesPin, a.LOW)
-        sleep(1)
-    
-        a.digitalWrite(BaseSidesPin, a.HIGH)
-        a.digitalWrite(BasefbPin, a.HIGH)
-        a.digitalWrite(TopfbPin, a.HIGH)
-        a.digitalWrite(TopPin, a.HIGH)
-        a.digitalWrite(TopSidesPin, a.HIGH)
-        sleep(1)
-    else:
-        teststatus()
-    
+
 def press_callback(obj):
     #Callback for All Function
     if(obj.text == 'All'):
@@ -165,8 +146,8 @@ def press_callback(obj):
     # End of Top Callback---------------------------------------------------
 
     # Callback for Top Sides Function
-    if obj.text == 'Top Sides':
-        if obj.state == "down":
+    if(obj.text == 'Top Sides'):
+        if (obj.state == "down"):
             global TopSidesStatus
             TopSidesStatus = 1
             teststatus()
@@ -177,7 +158,7 @@ def press_callback(obj):
     # End of Top Sides Callback----------------------------------------------
             
     # Callback for Base Sides Function
-    if obj.text == 'Base Sides':
+    if(obj.text == 'Base Sides'):
         if obj.state == "down":
             global BaseSidesStatus
             BaseSidesStatus = 1
@@ -190,7 +171,26 @@ def press_callback(obj):
 
     # Callback for Light Cycling
     if(obj.text == 'LightCycling'):
+        while (obj.state == "down"):
+            # for i in range(3):
+            a.digitalWrite(BaseSidesPin, a.LOW)
+            a.digitalWrite(BasefbPin, a.LOW)
+            a.digitalWrite(TopfbPin, a.LOW)
+            a.digitalWrite(TopPin, a.LOW)
+            a.digitalWrite(TopSidesPin, a.LOW)
+            sleep(1)
+
+            a.digitalWrite(BaseSidesPin, a.HIGH)
+            a.digitalWrite(BasefbPin, a.HIGH)
+            a.digitalWrite(TopfbPin, a.HIGH)
+            a.digitalWrite(TopPin, a.HIGH)
+            a.digitalWrite(TopSidesPin, a.HIGH)
+            sleep(1)
+        else:
+            teststatus()
+    # End of Light Cycling Callback-----------------------------------------
 # End of Callback functions
+
 
 class Brisesolette(App):
     def build(self):
