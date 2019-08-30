@@ -196,19 +196,20 @@ def press_callback(obj):
         if obj.state == "down":
             global LightCyclingStatus
             LightCyclingStatus = 1
-            a.digitalWrite(BaseSidesPin, a.LOW)
-            a.digitalWrite(BasefbPin, a.LOW)
-            a.digitalWrite(TopfbPin, a.LOW)
-            a.digitalWrite(TopPin, a.LOW)
-            a.digitalWrite(TopSidesPin, a.LOW)
-            sleep(3)
+            for i in range 3:
+                a.digitalWrite(BaseSidesPin, a.LOW)
+                a.digitalWrite(BasefbPin, a.LOW)
+                a.digitalWrite(TopfbPin, a.LOW)
+                a.digitalWrite(TopPin, a.LOW)
+                a.digitalWrite(TopSidesPin, a.LOW)
+                sleep(3)
 
-            a.digitalWrite(BaseSidesPin, a.HIGH)
-            a.digitalWrite(BasefbPin, a.HIGH)
-            a.digitalWrite(TopfbPin, a.HIGH)
-            a.digitalWrite(TopPin, a.HIGH)
-            a.digitalWrite(TopSidesPin, a.HIGH)
-            sleep(3)
+                a.digitalWrite(BaseSidesPin, a.HIGH)
+                a.digitalWrite(BasefbPin, a.HIGH)
+                a.digitalWrite(TopfbPin, a.HIGH)
+                a.digitalWrite(TopPin, a.HIGH)
+                a.digitalWrite(TopSidesPin, a.HIGH)
+                sleep(3)
         else:
             global LightCyclingStatus
             LightCyclingStatus = 0
