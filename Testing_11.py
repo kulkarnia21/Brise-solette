@@ -36,6 +36,17 @@ TopSidesStatus = 0
 interval = 3
 Timer = 0
 
+##Importing and Setup
+from kivy.app import App
+from kivy.core.window import Window #Required to toggle fullscreen and set resolution
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.togglebutton import ToggleButton
+from kivy.uix.accordion import Accordion, AccordionItem
+from kivy.uix.label import Label
+from kivy.uix.image import Image
+from kivy.uix.button import Button
+from kivy.clock import Clock
+
 #Adding Function for light cycling-------------------------------------------------
 global LightCyclingStatus
 def cycling(dt):
@@ -64,18 +75,6 @@ def cycling(dt):
 Clock.schedule_interval(cycling, 1)
 
 #---------------------------------------------------------------------------
-
-
-##Importing and Setup
-from kivy.app import App
-from kivy.core.window import Window #Required to toggle fullscreen and set resolution
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.togglebutton import ToggleButton
-from kivy.uix.accordion import Accordion, AccordionItem
-from kivy.uix.label import Label
-from kivy.uix.image import Image
-from kivy.uix.button import Button
-
 
 #---------------------------------------------------------------------------
 ##function to test all status
