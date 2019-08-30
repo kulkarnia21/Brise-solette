@@ -51,6 +51,7 @@ from kivy.clock import Clock
 global LightCyclingStatus
 def cycling():
     global Timer
+    global LightCyclingStatus
     if(LightCyclingStatus == 1):
         if((Timer%interval) == 0):
             if ((Timer/3) %2 == 0):
