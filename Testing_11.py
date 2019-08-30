@@ -26,9 +26,9 @@ a.pinMode(TopfbPin, a.OUTPUT)
 a.pinMode(TopPin, a.OUTPUT)
 a.pinMode(TopSidesPin, a.OUTPUT)
 
-AllStatus= 1
+AllStatus = 1
 BaseSidesStatus = 0
-BasefbStatus= 0
+BasefbStatus = 0
 TopfbStatus = 0
 TopStatus = 0
 TopSidesStatus = 0
@@ -48,7 +48,9 @@ from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.button import Button
 
+
 #---------------------------------------------------------------------------
+
 
 ##function to test all status
 def teststatus():
@@ -194,6 +196,19 @@ def press_callback(obj):
         if obj.state == "down":
             global LightCyclingStatus
             LightCyclingStatus = 1
+            a.digitalWrite(BaseSidesPin, a.LOW)
+            a.digitalWrite(BasefbPin, a.LOW)
+            a.digitalWrite(TopfbPin, a.LOW)
+            a.digitalWrite(TopPin, a.LOW)
+            a.digitalWrite(TopSidesPin, a.LOW)
+            sleep(3)
+
+            a.digitalWrite(BaseSidesPin, a.HIGH)
+            a.digitalWrite(BasefbPin, a.HIGH)
+            a.digitalWrite(TopfbPin, a.HIGH)
+            a.digitalWrite(TopPin, a.HIGH)
+            a.digitalWrite(TopSidesPin, a.HIGH)
+            sleep(3)
         else:
             global LightCyclingStatus
             LightCyclingStatus = 0
@@ -302,4 +317,5 @@ if __name__ == '__main__':
     Window.size = (800,480)
     Window.fullscreen = True
     Brisesolette().run()
+
 
