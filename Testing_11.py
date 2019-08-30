@@ -196,7 +196,7 @@ def press_callback(obj):
         if obj.state == "down":
             global LightCyclingStatus
             LightCyclingStatus = 1
-            for i in range 3:
+            for i in range (3):
                 a.digitalWrite(BaseSidesPin, a.LOW)
                 a.digitalWrite(BasefbPin, a.LOW)
                 a.digitalWrite(TopfbPin, a.LOW)
