@@ -234,8 +234,8 @@ class Brisesolette(App):
         #End of Manual Control Tab---------------------------------------------
         
         
-        #Vitals and Light Cycling Tab
-        VLC = AccordionItem(title='Vitals and Light Cycling')
+        #Light Cycling Tab
+        LC = AccordionItem(title='Light Cycling')
         
         #Declaring Elements
         logo= Image(source='Brise-solette_Logo.png', allow_stretch='True')
@@ -243,17 +243,24 @@ class Brisesolette(App):
         LCButton= Button(text = "Light Cycling")
         LCButton.bind(on_press = LightCycling)
         
+        # Adding elements to LCLayout
+        LCLayout = GridLayout(cols=2)
+        LCLayout.add_widget(logo)
+        LCLayout.add_widget(LCButton)
         
-        # Adding elements to VLCLayout
-        VLCLayout = GridLayout(cols=2)
-        VLCLayout.add_widget(logo)
-        VLCLayout.add_widget(LCButton)
+        LC.add_widget(LCLayout) #Adding layout to LC
         
-        VLC.add_widget(VLCLayout) #Adding layout to VLC
-        
-        root.add_widget(VLC) #Adding VLC Accordion Tab
+        root.add_widget(LC) #Adding VLC Accordion Tab
 
         #Vitals Tab -----------------------------------------------------------
+        Vitals = AccordionItem(title='Vitals')
+        VitalsLayout = Grid Layout (cols = 2 )
+        VitalsLayout.add_widget (logo)
+
+        root.add_widget(VitalsLayout) #Adding layout to Vitals
+
+        root.add_widget(Vitals) #Adding Vitals accordion Tab
+
 
 
 
