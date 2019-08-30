@@ -191,9 +191,14 @@ def press_callback(obj):
 
     # Callback for Light Cycling
     if(obj.text == 'Light Cycling'):
-        cycling()
+        if obj.state == "down":
+            global LightCyclingStatus
+            LightCyclingStatus = 1
+        else:
+            global LightCyclingStatus
+            LightCyclingStatus = 0
     # End of Light Cycling Callback-----------------------------------------
-
+cycling()
 # End of Callback functions
 
 
