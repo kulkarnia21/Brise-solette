@@ -287,20 +287,19 @@ class Brisesolette(App):
 
         # Vitals Tab -----------------------------------------------------------
 
-        ##Vitals = AccordionItem(title='Vitals')
+        Vitals = AccordionItem(title='Vitals')
 
-        # Declare Elements
         # Declaring Elements
-        ##logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
+        logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
 
 
         # Setting up grid layout
-        ##VitalsLayout = GridLayout(cols=2)
+        VitalsLayout = GridLayout(cols=2)
 
         # Adding elements
-        ##VitalsLayout.add_widget(logo)
+        VitalsLayout.add_widget(logo)
 
-        ##root.add_widget(VitalsLayout) # Adding layout to Vitals
+        root.add_widget(VitalsLayout)  # Adding layout to Vitals
 
         ##root.add_widget(Vitals) # Adding Vitals accordion Tab
 
