@@ -35,6 +35,7 @@ TopSidesStatus = 0
 
 interval = 3
 Timer = 0
+LightCyclingStatus = 0
 
 ##Importing and Setup
 from kivy.app import App
@@ -48,7 +49,6 @@ from kivy.uix.button import Button
 from kivy.clock import Clock
 
 #Adding Function for light cycling-------------------------------------------------
-global LightCyclingStatus
 def cycling():
     global Timer
     global LightCyclingStatus
