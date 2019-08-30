@@ -171,8 +171,8 @@ def press_callback(obj):
 
     # Callback for Light Cycling
     if(obj.text == 'Light Cycling'):
-        #while (obj.state == "down"):
-            for i in range(3):
+        # while (obj.state == "down"):
+        for i in range(3):
             a.digitalWrite(BaseSidesPin, a.LOW)
             a.digitalWrite(BasefbPin, a.LOW)
             a.digitalWrite(TopfbPin, a.LOW)
