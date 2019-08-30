@@ -1,0 +1,17 @@
+Mini Prototype
+#Setup Pinmodes
+led = 13
+BaseSidesPin = 6
+BasefbPin = 5
+TopfbPin = 2
+TopPin = 3
+TopSidesPin = 4
+---------------------------------------------------------------
+Large Prototype
+#Setup Pinmodes
+led = 13
+BaseSidesPin = 2
+BasefbPin = 3
+TopfbPin = 4
+TopPin = 5
+TopSidesPin = 6
