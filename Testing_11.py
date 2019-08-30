@@ -31,7 +31,8 @@ BaseSidesStatus = 0
 BasefbStatus= 0
 TopfbStatus = 0
 TopStatus = 0
-TopSidesStatus = 0 
+TopSidesStatus = 0
+
 #---------------------------------------------------------------------------
 
 
@@ -64,7 +65,7 @@ def teststatus():
         a.digitalWrite(TopSidesPin, a.HIGH)
         
         
-    else:        
+    else:
         if BaseSidesStatus == 1:
             a.digitalWrite(BaseSidesPin, a.HIGH)
         else:
@@ -93,10 +94,11 @@ def teststatus():
 # End of function to test all statuses---------------------------------------------
 
 
-#Define Callback for Toggle
+# Define Callback for Toggle
 def LightCycling(obj):
-    #Callback for Light Cycling
-    for i in range(3):
+    # Callback for Light Cycling
+    while(obj.state== "down"):
+    #for i in range(3):
         a.digitalWrite(BaseSidesPin, a.LOW)
         a.digitalWrite(BasefbPin, a.LOW)
         a.digitalWrite(TopfbPin, a.LOW)
@@ -110,8 +112,8 @@ def LightCycling(obj):
         a.digitalWrite(TopPin, a.HIGH)
         a.digitalWrite(TopSidesPin, a.HIGH)
         sleep(1)
-    
-    teststatus()
+    else:
+        teststatus()
     
 def press_callback(obj):
     #Callback for All Function
@@ -124,9 +126,9 @@ def press_callback(obj):
             global AllStatus
             AllStatus=0
             teststatus()
-    #End of All Function Callback-------------------------------------------
+    # End of All Function Callback-------------------------------------------
     
-    #Callback for Top f/b Function
+    # Callback for Top f/b Function
     if(obj.text == 'Top f/b'):
         if(obj.state == "down"):
             global TopfbStatus
@@ -136,9 +138,9 @@ def press_callback(obj):
             global TopfbStatus
             TopfbStatus = 0
             teststatus()
-    #End of Top f/b Callback-----------------------------------------------
+    # End of Top f/b Callback-----------------------------------------------
     
-    #Callback for Base f/b Function
+    # Callback for Base f/b Function
     if(obj.text == 'Base f/b'):
         if(obj.state == "down"):
             global BasefbStatus
@@ -148,7 +150,7 @@ def press_callback(obj):
             global BasefbStatus
             BasefbStatus = 0
             teststatus()
-    #End of Base f/b Callback----------------------------------------------
+    # End of Base f/b Callback----------------------------------------------
     
     #Callback for Top Function
     if (obj.text == 'Top'):
@@ -160,9 +162,9 @@ def press_callback(obj):
             global TopStatus
             TopStatus = 0
             teststatus()
-    #End of Top Callback---------------------------------------------------
+    # End of Top Callback---------------------------------------------------
 
-    #Callback for Top Sides Function
+    # Callback for Top Sides Function
     if(obj.text == 'Top Sides'):
         if (obj.state == "down"):
             global TopSidesStatus
@@ -172,9 +174,9 @@ def press_callback(obj):
             global TopSidesStatus
             TopSidesStatus = 0
             teststatus()
-    #End of Top Sides Callback----------------------------------------------
+    # End of Top Sides Callback----------------------------------------------
             
-    #Callback for Base Sides Function
+    # Callback for Base Sides Function
     if(obj.text == 'Base Sides'):
         if obj.state == "down":
             global BaseSidesStatus
@@ -184,62 +186,64 @@ def press_callback(obj):
             global BaseSidesStatus
             BaseSidesStatus = 0
             teststatus()
-    #End of Base Sides Callback--------------------------------------------
+    # End of Base Sides Callback--------------------------------------------
 
 # End of Callback functions
 
 class Brisesolette(App):
     def build(self):
         root = Accordion(orientation='vertical')
-        #Building manual Control Tab
+
+        # Building manual Control Tab---------------------------------------
         ManualControl = AccordionItem(title='Manual Control',)
         
-        #Adding Layout Layer
+        # Adding Layout Layer
         Layout=GridLayout(cols=3)
-        
-        #Build All Button
+
+        # Build All Button
         Layout.All = ToggleButton(text= 'All', state='down')
         Layout.All.bind(on_press = press_callback)
         Layout.add_widget(Layout.All)
         
-        #Build Top F/B Button
+        # Build Top F/B Button
         Layout.Top_fb = ToggleButton(text= 'Top f/b')
         Layout.Top_fb.bind(on_press = press_callback)
         Layout.add_widget(Layout.Top_fb)
         
-        #Build Base F/B Button
+        # Build Base F/B Button
         Layout.Base_fb = ToggleButton(text='Base f/b')
         Layout.Base_fb.bind(on_press = press_callback)
         Layout.add_widget(Layout.Base_fb)
         
-        #Build Top Button
+        # Build Top Button
         Layout.Top = ToggleButton(text = 'Top')
         Layout.Top.bind(on_press = press_callback)
         Layout.add_widget(Layout.Top)
         
-        #Build Base Sides Button
+        # Build Base Sides Button
         Layout.BaseSides = ToggleButton(text= 'Base Sides')
         Layout.BaseSides.bind(on_press = press_callback)
         Layout.add_widget(Layout.BaseSides)
         
-        #Build Top Sides Button
+        # Build Top Sides Button
         Layout.TopSides = ToggleButton(text = 'Top Sides')
         Layout.TopSides.bind(on_press = press_callback)
         Layout.add_widget(Layout.TopSides)
 
-        #Adding Buttons to Manual Control
+        # Adding Buttons to Manual Control
         ManualControl.add_widget(Layout)
-        #Add Accordion Tab
+        # Add Accordion Tab
         root.add_widget(ManualControl)
 
-        #End of Manual Control Tab---------------------------------------------
+        # End of Manual Control Tab---------------------------------------------
         
         
-        #Light Cycling Tab
+        # Light Cycling Tab-----------------------------------------------------
+
         LC = AccordionItem(title='Light Cycling')
         
         #Declaring Elements
-        logo= Image(source='Brise-solette_Logo.png', allow_stretch='True')
+        logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
         
         LCButton= Button(text = "Light Cycling")
         LCButton.bind(on_press = LightCycling)
@@ -249,29 +253,32 @@ class Brisesolette(App):
         LCLayout.add_widget(logo)
         LCLayout.add_widget(LCButton)
         
-        LC.add_widget(LCLayout) #Adding layout to LC
+        LC.add_widget(LCLayout) # Adding layout to LC
         
-        root.add_widget(LC) #Adding VLC Accordion Tab
+        root.add_widget(LC) # Adding LC Accordion Tab
 
-        #Vitals Tab -----------------------------------------------------------
+        # End of Light Cycling Tab----------------------------------------------
 
-        Vitals = AccordionItem(title='Vitals')
+        # Vitals Tab -----------------------------------------------------------
 
-        #Declare Elements
+        ##Vitals = AccordionItem(title='Vitals')
+
+        # Declare Elements
         # Declaring Elements
-        logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
+        ##logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
 
 
-        #Setting up grid layout
-        VitalsLayout = GridLayout(cols=2)
+        # Setting up grid layout
+        ##VitalsLayout = GridLayout(cols=2)
 
-        #Adding elements
-        VitalsLayout.add_widget(logo)
+        # Adding elements
+        ##VitalsLayout.add_widget(logo)
 
-        root.add_widget(VitalsLayout) #Adding layout to Vitals
+        ##root.add_widget(VitalsLayout) # Adding layout to Vitals
 
-        root.add_widget(Vitals) #Adding Vitals accordion Tab
+        ##root.add_widget(Vitals) # Adding Vitals accordion Tab
 
+        # End of Vitals Tab------------------------------------------------------
 
 
 
