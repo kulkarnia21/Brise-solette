@@ -33,7 +33,7 @@ TopfbStatus = 0
 TopStatus = 0
 TopSidesStatus = 0
 
-Light Cycling Status = 0
+LightCyclingStatus = 0
 
 #---------------------------------------------------------------------------
 
@@ -97,7 +97,22 @@ def teststatus():
 
 #Adding Function for light cycling-------------------------------------------------
 def cycling():
-    while
+    while(LightCyclingStatus == 1):
+        a.digitalWrite(BaseSidesPin, a.LOW)
+        a.digitalWrite(BasefbPin, a.LOW)
+        a.digitalWrite(TopfbPin, a.LOW)
+        a.digitalWrite(TopPin, a.LOW)
+        a.digitalWrite(TopSidesPin, a.LOW)
+        sleep(3)
+
+        a.digitalWrite(BaseSidesPin, a.HIGH)
+        a.digitalWrite(BasefbPin, a.HIGH)
+        a.digitalWrite(TopfbPin, a.HIGH)
+        a.digitalWrite(TopPin, a.HIGH)
+        a.digitalWrite(TopSidesPin, a.HIGH)
+        sleep(3)
+    else:
+        teststatus()
 
 # Define Callback for Toggle-------------------------------------------------------
 
