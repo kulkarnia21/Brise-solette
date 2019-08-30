@@ -165,8 +165,8 @@ def press_callback(obj):
     # End of Top Callback---------------------------------------------------
 
     # Callback for Top Sides Function
-    if(obj.text == 'Top Sides'):
-        if (obj.state == "down"):
+    if obj.text == 'Top Sides':
+        if obj.state == "down":
             global TopSidesStatus
             TopSidesStatus = 1
             teststatus()
@@ -177,7 +177,7 @@ def press_callback(obj):
     # End of Top Sides Callback----------------------------------------------
             
     # Callback for Base Sides Function
-    if(obj.text == 'Base Sides'):
+    if obj.text == 'Base Sides':
         if obj.state == "down":
             global BaseSidesStatus
             BaseSidesStatus = 1
@@ -188,6 +188,8 @@ def press_callback(obj):
             teststatus()
     # End of Base Sides Callback--------------------------------------------
 
+    # Callback for Light Cycling
+    if(obj.text == 'LightCycling'):
 # End of Callback functions
 
 class Brisesolette(App):
