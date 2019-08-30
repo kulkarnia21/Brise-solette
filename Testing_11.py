@@ -7,7 +7,7 @@ from nanpy import (ArduinoApi, SerialManager)
 from time import sleep
 try:
     connection = SerialManager()
-    a = ArduinoApi (connection = connection)
+    a = ArduinoApi(connection = connection)
 except:
     print("Failed to connect to Arduino")
     
@@ -38,7 +38,7 @@ Timer = 0
 
 #Adding Function for light cycling-------------------------------------------------
 global LightCyclingStatus
-def cycling():
+def cycling(dt):
     global Timer
     if(LightCyclingStatus == 1):
         if((Timer%interval) == 0):
