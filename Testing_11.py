@@ -37,7 +37,7 @@ interval = 3
 Timer = 0
 
 #Adding Function for light cycling-------------------------------------------------
-global LightCyclingStatus = 0
+global LightCyclingStatus
 def cycling():
     global Timer
     if(LightCyclingStatus == 1):
