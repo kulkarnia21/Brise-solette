@@ -49,7 +49,7 @@ from kivy.uix.button import Button
 from kivy.clock import Clock
 
 #Adding Function for light cycling-------------------------------------------------
-def cycling():
+def cycling(dt):
     global Timer
     global LightCyclingStatus
     if(LightCyclingStatus == 1):
