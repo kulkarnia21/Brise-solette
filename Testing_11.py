@@ -299,7 +299,7 @@ class Brisesolette(App):
         # Adding elements
         VitalsLayout.add_widget(logo)
 
-        root.add_widget(VitalsLayout)  # Adding layout to Vitals
+        Vitals.add_widget(VitalsLayout)  # Adding layout to Vitals
 
         ##root.add_widget(Vitals) # Adding Vitals accordion Tab
 
