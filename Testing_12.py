@@ -11,7 +11,7 @@ try:
 except:
     print("Failed to connect to Arduino")
     
-#Setup Pin Modes
+#Setup Pin Modes----------------------------------------------------------
 led = 13
 BaseSidesPin = 2
 BasefbPin = 3
@@ -40,8 +40,17 @@ TopfbStatus = 0
 TopStatus = 0
 TopSidesStatus = 0
 
+a.digitalWrite(BaseSidesPin, a.HIGH)
+a.digitalWrite(BasefbPin, a.HIGH)
+a.digitalWrite(TopfbPin, a.HIGH)
+a.digitalWrite(TopPin, a.HIGH)
+a.digitalWrite(TopSidesPin, a.HIGH)
+
+global timer
+global interval
+global LightCyclingStatus
 interval = 3
-Timer = 0
+timer = 0
 LightCyclingStatus = 0
 
 ##Importing and Setup----------------------------------------------------------------
@@ -305,9 +314,10 @@ class Brisesolette(App):
 if __name__ == '__main__':
     Brisesolette().run()
 
+#Failsafe: Adding statements to execute on close, will drive all relays to closed position (allowing current through)
 print("so long sucka")
 a.digitalWrite(BaseSidesPin, a.LOW)
 a.digitalWrite(BasefbPin, a.LOW)
 a.digitalWrite(TopfbPin, a.LOW)
-a.digitalWrite(TopPin, a.HIGH)
-a.digitalWrite(TopSidesPin, a.HIGH)
+a.digitalWrite(TopPin, a.LOW)
+a.digitalWrite(TopSidesPin, a.LOW)
