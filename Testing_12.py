@@ -303,7 +303,7 @@ class Brisesolette(App):
 
 if __name__ == '__main__':
     Window.show_cursor = False
-    Window.size = (800,480)
+    #Window.size = (800,480)
     Brisesolette().run()
 
 print("so long sucka")
