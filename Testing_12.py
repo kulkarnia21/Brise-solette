@@ -209,10 +209,12 @@ def press_callback(obj):
     if(obj.text == 'Light Cycling'):
         if obj.state == "down":
             LightCyclingStatus = 1
-            print("Light Cycling Status:" + LightCyclingStatus)
+            print("Light Cycling Status:")
+            println(LightCyclingStatus)
         else:
             LightCyclingStatus = 0
-            print("Light Cycling Status:" + LightCyclingStatus)
+            print("Light Cycling Status:")
+            println(LightCyclingStatus)
     # End of Light Cycling Callback-----------------------------------------
 # End of Callback functions
 
