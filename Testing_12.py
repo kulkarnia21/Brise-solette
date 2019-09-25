@@ -56,7 +56,8 @@ from kivy.uix.button import Button
 from kivy.clock import Clock
 
 Window.fullscreen = True
-
+Window.show_cursor = False
+Window.size = (800, 480)
 
 #Adding Function for light cycling-------------------------------------------------
 #def cycling(self, dt):
@@ -302,8 +303,11 @@ class Brisesolette(App):
 
 
 if __name__ == '__main__':
-    Window.show_cursor = False
-    #Window.size = (800,480)
     Brisesolette().run()
 
 print("so long sucka")
+a.digitalWrite(BaseSidesPin, a.LOW)
+a.digitalWrite(BasefbPin, a.LOW)
+a.digitalWrite(TopfbPin, a.LOW)
+a.digitalWrite(TopPin, a.LOW)
+a.digitalWrite(TopSidesPin, a.LOW)
