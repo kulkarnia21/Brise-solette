@@ -11,7 +11,7 @@ try:
 except:
     print("Failed to connect to Arduino")
     
-#Setup Pinmodes
+#Setup Pin Modes
 led = 13
 BaseSidesPin = 2
 BasefbPin = 3
@@ -25,6 +25,13 @@ a.pinMode(BasefbPin, a.OUTPUT)
 a.pinMode(TopfbPin, a.OUTPUT)
 a.pinMode(TopPin, a.OUTPUT)
 a.pinMode(TopSidesPin, a.OUTPUT)
+
+global AllStatus
+global BaseSidesStatus
+global BasefbStatus
+global TopfbStatus
+global TopStatus
+global TopSidesStatus
 
 AllStatus = 1
 BaseSidesStatus = 0
@@ -48,6 +55,9 @@ from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.clock import Clock
 
+Window.fullscreen = True
+
+
 #Adding Function for light cycling-------------------------------------------------
 def cycling(dt):
     global Timer
@@ -69,23 +79,16 @@ def cycling(dt):
     #             Timer = Timer + 1
     #     else:
     #         Timer = Timer + 1
-    else:
-        Timer = 0
-        teststatus()
-
-Clock.schedule_interval(cycling, 1)
+    #else:
+    #Timer = 0
+    #teststatus()
+    # Clock.schedule_interval(cycling, 1)
 
 #---------------------------------------------------------------------------
 
 #---------------------------------------------------------------------------
 ##function to test all status
 def teststatus():
-    global AllStatus
-    global BaseSidesStatus
-    global BasefbStatus
-    global TopfbStatus
-    global TopStatus
-    global TopSidesStatus
 
     if AllStatus == 1:
         a.digitalWrite(BaseSidesPin, a.HIGH)
@@ -129,11 +132,9 @@ def press_callback(obj):
     #Callback for All Function
     if(obj.text == 'All'):
         if(obj.state == "down"):
-            global AllStatus
             AllStatus = 1
             teststatus()
         else:
-            global AllStatus
             AllStatus=0
             teststatus()
     # End of All Function Callback-------------------------------------------
@@ -141,11 +142,9 @@ def press_callback(obj):
     # Callback for Top f/b Function
     if(obj.text == 'Top f/b'):
         if(obj.state == "down"):
-            global TopfbStatus
             TopfbStatus = 1
             teststatus()
         else:
-            global TopfbStatus
             TopfbStatus = 0
             teststatus()
     # End of Top f/b Callback-----------------------------------------------
@@ -153,11 +152,9 @@ def press_callback(obj):
     # Callback for Base f/b Function
     if(obj.text == 'Base f/b'):
         if(obj.state == "down"):
-            global BasefbStatus
             BasefbStatus = 1
             teststatus()
         else:
-            global BasefbStatus
             BasefbStatus = 0
             teststatus()
     # End of Base f/b Callback----------------------------------------------
@@ -165,11 +162,9 @@ def press_callback(obj):
     #Callback for Top Function
     if (obj.text == 'Top'):
         if(obj.state == "down"):
-            global TopStatus
             TopStatus = 1
             teststatus()
         else:
-            global TopStatus
             TopStatus = 0
             teststatus()
     # End of Top Callback---------------------------------------------------
@@ -177,11 +172,9 @@ def press_callback(obj):
     # Callback for Top Sides Function
     if(obj.text == 'Top Sides'):
         if (obj.state == "down"):
-            global TopSidesStatus
             TopSidesStatus = 1
             teststatus()
         else:
-            global TopSidesStatus
             TopSidesStatus = 0
             teststatus()
     # End of Top Sides Callback----------------------------------------------
@@ -189,11 +182,9 @@ def press_callback(obj):
     # Callback for Base Sides Function
     if(obj.text == 'Base Sides'):
         if obj.state == "down":
-            global BaseSidesStatus
             BaseSidesStatus = 1
             teststatus()
         else:
-            global BaseSidesStatus
             BaseSidesStatus = 0
             teststatus()
     # End of Base Sides Callback--------------------------------------------
@@ -201,10 +192,8 @@ def press_callback(obj):
     # Callback for Light Cycling
     if(obj.text == 'Light Cycling'):
         if obj.state == "down":
-            global LightCyclingStatus
             LightCyclingStatus = 1
         else:
-            global LightCyclingStatus
             LightCyclingStatus = 0
     # End of Light Cycling Callback-----------------------------------------
 cycling()
@@ -308,7 +297,6 @@ class Brisesolette(App):
 if __name__ == '__main__':
     Window.show_cursor = False
     Window.size = (800,480)
-    Window.fullscreen = True
     Brisesolette().run()
 
 print("so long sucka")
