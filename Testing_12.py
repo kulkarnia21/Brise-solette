@@ -59,9 +59,9 @@ Window.fullscreen = True
 
 
 #Adding Function for light cycling-------------------------------------------------
-def cycling(self, dt):
-    global Timer
-    global LightCyclingStatus
+#def cycling(self, dt):
+    #global Timer
+    #global LightCyclingStatus
     # if(LightCyclingStatus == 1):
     #     if((Timer%interval) == 0):
     #         if ((Timer/3) %2 == 0):
