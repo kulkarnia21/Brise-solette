@@ -195,7 +195,6 @@ def press_callback(obj):
         else:
             LightCyclingStatus = 0
     # End of Light Cycling Callback-----------------------------------------
-cycling()
 # End of Callback functions
 
 
