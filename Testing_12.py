@@ -2,7 +2,7 @@
 #Output: LOW = Clear, HIGH = Opaque,
 #Button Press: 'down' = Clear, 'normal' = Opaque
 
-##Setting up communication with Arduino
+##Setting up communication with Arduino-----------------------------------
 from nanpy import (ArduinoApi, SerialManager)
 from time import sleep
 try:
@@ -44,7 +44,7 @@ interval = 3
 Timer = 0
 LightCyclingStatus = 0
 
-##Importing and Setup
+##Importing and Setup----------------------------------------------------------------
 from kivy.app import App
 from kivy.core.window import Window #Required to toggle fullscreen and set resolution
 from kivy.uix.gridlayout import GridLayout
@@ -94,7 +94,7 @@ def teststatus():
     global TopfbStatus
     global TopStatus
     global TopSidesStatus
-    
+
     if AllStatus == 1:
         a.digitalWrite(BaseSidesPin, a.HIGH)
         a.digitalWrite(BasefbPin, a.HIGH)
@@ -134,6 +134,13 @@ def teststatus():
 # Define Callback for Toggle-------------------------------------------------------
 
 def press_callback(obj):
+    global AllStatus
+    global BaseSidesStatus
+    global BasefbStatus
+    global TopfbStatus
+    global TopStatus
+    global TopSidesStatus
+
     #Callback for All Function
     if(obj.text == 'All'):
         if(obj.state == "down"):
