@@ -88,7 +88,13 @@ Window.fullscreen = True
 #---------------------------------------------------------------------------
 ##function to test all status
 def teststatus():
-
+    global AllStatus
+    global BaseSidesStatus
+    global BasefbStatus
+    global TopfbStatus
+    global TopStatus
+    global TopSidesStatus
+    
     if AllStatus == 1:
         a.digitalWrite(BaseSidesPin, a.HIGH)
         a.digitalWrite(BasefbPin, a.HIGH)
@@ -284,10 +290,6 @@ class Brisesolette(App):
         root.add_widget(Vitals)  # Adding Vitals accordion Tab
 
         # End of Vitals Tab------------------------------------------------------
-
-
-
-
 
         return root
 
