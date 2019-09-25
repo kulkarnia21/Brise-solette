@@ -145,6 +145,8 @@ def press_callback(obj):
     global TopStatus
     global TopSidesStatus
 
+    global LightCyclingStatus
+
     #Callback for All Function
     if(obj.text == 'All'):
         if(obj.state == "down"):
