@@ -63,29 +63,29 @@ Window.show_cursor = False
 Window.size = (800, 480)
 
 #Adding Function for light cycling-------------------------------------------------
-#def cycling(self, dt):
-    #global Timer
-    #global LightCyclingStatus
-    # if(LightCyclingStatus == 1):
-    #     if((Timer%interval) == 0):
-    #         if ((Timer/3) %2 == 0):
-    #             a.digitalWrite(BaseSidesPin, a.LOW)
-    #             a.digitalWrite(BasefbPin, a.LOW)
-    #             a.digitalWrite(TopfbPin, a.LOW)
-    #             a.digitalWrite(TopPin, a.LOW)
-    #             a.digitalWrite(TopSidesPin, a.LOW)
-    #         else:
-    #             a.digitalWrite(BaseSidesPin, a.HIGH)
-    #             a.digitalWrite(BasefbPin, a.HIGH)
-    #             a.digitalWrite(TopfbPin, a.HIGH)
-    #             a.digitalWrite(TopPin, a.HIGH)
-    #             a.digitalWrite(TopSidesPin, a.HIGH)
-    #             Timer = Timer + 1
-    #     else:
-    #         Timer = Timer + 1
-    #else:
-    #Timer = 0
-    #teststatus()
+def cycling(self, dt):
+    global Timer
+    global LightCyclingStatus
+    if(LightCyclingStatus == 1):
+        if((Timer%interval) == 0):
+            if ((Timer/3) %2 == 0):
+                a.digitalWrite(BaseSidesPin, a.LOW)
+                a.digitalWrite(BasefbPin, a.LOW)
+                a.digitalWrite(TopfbPin, a.LOW)
+                a.digitalWrite(TopPin, a.LOW)
+                a.digitalWrite(TopSidesPin, a.LOW)
+            else:
+                a.digitalWrite(BaseSidesPin, a.HIGH)
+                a.digitalWrite(BasefbPin, a.HIGH)
+                a.digitalWrite(TopfbPin, a.HIGH)
+                a.digitalWrite(TopPin, a.HIGH)
+                a.digitalWrite(TopSidesPin, a.HIGH)
+                Timer = Timer + 1
+        else:
+            Timer = Timer + 1
+    else:
+        Timer = 0
+        teststatus()
 
 #---------------------------------------------------------------------------
 
@@ -306,6 +306,8 @@ class Brisesolette(App):
 
         # End of Vitals Tab------------------------------------------------------
 
+        #Scheduled task----------------------------------------------------------
+        Clock.schedule_interval(cycling(), 1.0)
         return root
 
 
