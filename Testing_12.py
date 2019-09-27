@@ -63,7 +63,7 @@ Window.show_cursor = False
 Window.size = (800, 480)
 
 #Adding Function for light cycling-------------------------------------------------
-def cycling(self, dt):
+def cycling(dt):
     global Timer
     global LightCyclingStatus
     if(LightCyclingStatus == 1):
