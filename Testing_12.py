@@ -67,27 +67,32 @@ def cycling(dt):
     global Timer
     global LightCyclingStatus
     if(LightCyclingStatus == 1):
-        # if((Timer%interval) == 0):
-        #     if ((Timer/interval) %2 == 0):
-        #         a.digitalWrite(BaseSidesPin, a.LOW)
-        #         a.digitalWrite(BasefbPin, a.LOW)
-        #         a.digitalWrite(TopfbPin, a.LOW)
-        #         a.digitalWrite(TopPin, a.LOW)
-        #         a.digitalWrite(TopSidesPin, a.LOW)
-        #     else:
-        #         a.digitalWrite(BaseSidesPin, a.HIGH)
-        #         a.digitalWrite(BasefbPin, a.HIGH)
-        #         a.digitalWrite(TopfbPin, a.HIGH)
-        #         a.digitalWrite(TopPin, a.HIGH)
-        #         a.digitalWrite(TopSidesPin, a.HIGH)
-        #         Timer = Timer + 1
-        # else:
-        #     Timer = Timer + 1
         print("Light cycling status is 1")
+        if((Timer%interval) == 0):
+            print("interval")
+            if ((Timer/interval) %2 == 0):
+                a.digitalWrite(BaseSidesPin, a.LOW)
+                a.digitalWrite(BasefbPin, a.LOW)
+                a.digitalWrite(TopfbPin, a.LOW)
+                a.digitalWrite(TopPin, a.LOW)
+                a.digitalWrite(TopSidesPin, a.LOW)
+                Timer = Timer + 1
+                print(Timer)
+            else:
+                a.digitalWrite(BaseSidesPin, a.HIGH)
+                a.digitalWrite(BasefbPin, a.HIGH)
+                a.digitalWrite(TopfbPin, a.HIGH)
+                a.digitalWrite(TopPin, a.HIGH)
+                a.digitalWrite(TopSidesPin, a.HIGH)
+                Timer = Timer + 1
+                print(Timer)
+        else:
+            Timer = Timer + 1
+            print(Timer)
     else:
         print("Light cycling status is 0")
-        # Timer = 0
-        # teststatus()
+        Timer = 0
+        teststatus()
 
 #---------------------------------------------------------------------------
 
