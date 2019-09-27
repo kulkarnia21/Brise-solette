@@ -33,7 +33,7 @@ global TopfbStatus
 global TopStatus
 global TopSidesStatus
 
-AllStatus = 1
+AllStatus = 0
 BaseSidesStatus = 0
 BasefbStatus = 0
 TopfbStatus = 0
@@ -66,7 +66,15 @@ Window.size = (800, 480)
 def cycling(dt):
     global Timer
     global LightCyclingStatus
-    if(LightCyclingStatus == 1):
+
+    global AllStatus
+    global BaseSidesStatus
+    global BasefbStatus
+    global TopfbStatus
+    global TopStatus
+    global TopSidesStatus
+
+    if(LightCyclingStatus == 1 and Allstatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0):
         print("Light cycling status is 1")
         if((Timer%interval) == 0):
             print("interval")
@@ -160,7 +168,7 @@ def press_callback(obj):
             AllStatus = 1
             teststatus()
         else:
-            AllStatus=0
+            AllStatus = 0
             teststatus()
     # End of All Function Callback-------------------------------------------
     
@@ -237,7 +245,7 @@ class Brisesolette(App):
         Layout=GridLayout(cols=3)
 
         # Build All Button
-        Layout.All = ToggleButton(text= 'All', state='down')
+        Layout.All = ToggleButton(text= 'All') #state='down'
         Layout.All.bind(on_press = press_callback)
         Layout.add_widget(Layout.All)
         
