@@ -307,7 +307,7 @@ class Brisesolette(App):
         # End of Vitals Tab------------------------------------------------------
 
         #Scheduled task----------------------------------------------------------
-        Clock.schedule_interval(cycling(), 1.0)
+        Clock.schedule_interval(cycling, 1.0)
         return root
 
 
