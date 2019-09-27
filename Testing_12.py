@@ -74,7 +74,7 @@ def cycling(dt):
     global TopStatus
     global TopSidesStatus
 
-    if(LightCyclingStatus == 1 and Allstatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0):
+    if(LightCyclingStatus == 1 and AllStatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0):
         print("Light cycling status is 1")
         if((Timer%interval) == 0):
             print("interval")
