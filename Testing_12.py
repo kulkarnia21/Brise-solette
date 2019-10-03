@@ -57,6 +57,7 @@ from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.clock import Clock
+from kivy.uix.textinput import TextInput
 
 Window.fullscreen = True
 Window.show_cursor = False
@@ -75,9 +76,9 @@ def cycling(dt):
     global TopSidesStatus
 
     if(LightCyclingStatus == 1 and AllStatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0):
-        print("Light cycling status is 1")
+        #print("Light cycling status is 1")
         if((Timer%interval) == 0):
-            print("interval")
+            #print("interval")
             if ((Timer/interval) %2 == 0):
                 a.digitalWrite(BaseSidesPin, a.LOW)
                 a.digitalWrite(BasefbPin, a.LOW)
@@ -85,7 +86,7 @@ def cycling(dt):
                 a.digitalWrite(TopPin, a.LOW)
                 a.digitalWrite(TopSidesPin, a.LOW)
                 Timer = Timer + 1
-                print(Timer)
+                #print(Timer)
             else:
                 a.digitalWrite(BaseSidesPin, a.HIGH)
                 a.digitalWrite(BasefbPin, a.HIGH)
@@ -93,12 +94,12 @@ def cycling(dt):
                 a.digitalWrite(TopPin, a.HIGH)
                 a.digitalWrite(TopSidesPin, a.HIGH)
                 Timer = Timer + 1
-                print(Timer)
+                #print(Timer)
         else:
             Timer = Timer + 1
-            print(Timer)
+            #print(Timer)
     else:
-        print("Light cycling status is 0")
+        #print("Light cycling status is 0")
         Timer = 0
         teststatus()
 
@@ -308,9 +309,9 @@ class Brisesolette(App):
         # Declaring Elements
         logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
 
-
         # Setting up grid layout
         VitalsLayout = GridLayout(cols=2)
+        VitalsLayout.HRVitals = TextInput(text = 'HR Vitals')
 
         # Adding elements
         VitalsLayout.add_widget(logo)
@@ -331,7 +332,7 @@ if __name__ == '__main__':
 
 
 #Failsafe: Adding statements to execute on close, will drive all relays to closed position (allowing current through)
-print("so long sucka")
+print("Bye Bye!")
 a.digitalWrite(BaseSidesPin, a.LOW)
 a.digitalWrite(BasefbPin, a.LOW)
 a.digitalWrite(TopfbPin, a.LOW)
