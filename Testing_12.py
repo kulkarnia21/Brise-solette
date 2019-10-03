@@ -307,15 +307,37 @@ class Brisesolette(App):
         Vitals = AccordionItem(title='Vitals')
 
         # Declaring Elements
-        logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
+        # logo = Image(source='Brise-solette_Logo.png', allow_stretch='True')
 
         # Setting up grid layout
         VitalsLayout = GridLayout(cols=2)
-        VitalsLayout.HRVitals = TextInput(text='HR Vitals')
+
+        #Adding in HR Vitals
+        VitalsLayout.HRVitals = TextInput(text='Heart Rate')
         VitalsLayout.add_widget(VitalsLayout.HRVitals)
 
+        #Adding in Temperature
+        VitalsLayout.Temp = TextInput(text = 'Temperature')
+        VitalsLayout.add_widget(VitalsLayout.Temp)
+
+        #Adding in Systolic BP
+        VitalsLayout.Systolic = TextInput(text = 'Systolic BP')
+        VitalsLayout.add_widget(VitalsLayout.Systolic)
+
+        #Adding in Respiratory Rate
+        VitalsLayout.RRVitals = TextInput(text='Respiratory Rate')
+        VitalsLayout.add_widget(VitalsLayout.RRVitals)
+
+        #Adding in Oxygen Saturation
+        VitalsLayout.Osat = TextInput(text = 'Osat')
+        VitalsLayout.add_widget(VitalsLayout.Osat)
+
+        # Adding in Diastolic BP
+        VitalsLayout.Diastolic = TextInput(text='Diastolic BP')
+        VitalsLayout.add_widget(VitalsLayout.Diastolic)
+
         # Adding elements
-        VitalsLayout.add_widget(logo)
+        # VitalsLayout.add_widget(logo)
 
         Vitals.add_widget(VitalsLayout)  # Adding layout to Vitals
 
