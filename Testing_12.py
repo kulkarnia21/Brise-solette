@@ -311,7 +311,8 @@ class Brisesolette(App):
 
         # Setting up grid layout
         VitalsLayout = GridLayout(cols=2)
-        VitalsLayout.HRVitals = TextInput(text = 'HR Vitals')
+        VitalsLayout.HRVitals = TextInput(text='HR Vitals')
+        VitalsLayout.add_widget(VitalsLayout.HRVitals)
 
         # Adding elements
         VitalsLayout.add_widget(logo)
