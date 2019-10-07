@@ -51,7 +51,7 @@ from kivy.uix.textinput import TextInput
 
 Window.fullscreen = True
 Window.show_cursor = False
-#Window.size = (800, 480)
+Window.size = (800, 480)
 
 #Adding Function for light cycling-------------------------------------------------
 def cycling(dt):
@@ -342,9 +342,8 @@ class Brisesolette(App):
 
 if __name__ == '__main__':
     Brisesolette().run()
-
-#Failsafe: Adding statements to execute on close, will drive all relays to closed position (allowing current through)
-print("Bye Bye!")
+    #Failsafe: Adding statements to execute on close, will drive all relays to closed position (allowing current through)
+    print("Bye Bye!")
 a.digitalWrite(BaseSidesPin, a.LOW)
 a.digitalWrite(BasefbPin, a.LOW)
 a.digitalWrite(TopfbPin, a.LOW)
