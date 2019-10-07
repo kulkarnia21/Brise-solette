@@ -40,9 +40,9 @@ TopfbStatus = 0
 TopStatus = 0
 TopSidesStatus = 0
 
-global timer
-global interval
-global LightCyclingStatus
+# global timer
+# global interval
+# global LightCyclingStatus
 interval = 3
 timer = 0
 LightCyclingStatus = 0
