@@ -26,13 +26,6 @@ a.pinMode(TopfbPin, a.OUTPUT)
 a.pinMode(TopPin, a.OUTPUT)
 a.pinMode(TopSidesPin, a.OUTPUT)
 
-# global AllStatus
-# global BaseSidesStatus
-# global BasefbStatus
-# global TopfbStatus
-# global TopStatus
-# global TopSidesStatus
-
 AllStatus = 0
 BaseSidesStatus = 0
 BasefbStatus = 0
@@ -40,9 +33,6 @@ TopfbStatus = 0
 TopStatus = 0
 TopSidesStatus = 0
 
-# global timer
-# global interval
-# global LightCyclingStatus
 interval = 3
 timer = 0
 LightCyclingStatus = 0
@@ -61,7 +51,7 @@ from kivy.uix.textinput import TextInput
 
 Window.fullscreen = True
 Window.show_cursor = False
-Window.size = (800, 480)
+#Window.size = (800, 480)
 
 #Adding Function for light cycling-------------------------------------------------
 def cycling(dt):
