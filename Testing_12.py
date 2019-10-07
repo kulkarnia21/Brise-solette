@@ -26,19 +26,19 @@ a.pinMode(TopfbPin, a.OUTPUT)
 a.pinMode(TopPin, a.OUTPUT)
 a.pinMode(TopSidesPin, a.OUTPUT)
 
-#global AllStatus
-#global BaseSidesStatus
-#global BasefbStatus
-#global TopfbStatus
-#global TopStatus
-#global TopSidesStatus
+# global AllStatus
+# global BaseSidesStatus
+# global BasefbStatus
+# global TopfbStatus
+# global TopStatus
+# global TopSidesStatus
 
-global AllStatus = 0
-global BaseSidesStatus = 0
-global BasefbStatus = 0
-global TopfbStatus = 0
-global TopStatus = 0
-global TopSidesStatus = 0
+AllStatus = 0
+BaseSidesStatus = 0
+BasefbStatus = 0
+TopfbStatus = 0
+TopStatus = 0
+TopSidesStatus = 0
 
 global timer
 global interval
