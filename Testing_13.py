@@ -300,17 +300,19 @@ class Brisesolette(App):
         # Setting up grid layout
         VitalsLayout = GridLayout(cols=6)
 
-        #Adding in HR Vitals
+        ##Adding in HR Vitals
         #HR Label
         VitalsLayout.add_widget(Label(text = "Heart Rate"))
         #HR slider
         VitalsLayout.HRVitals = Slider(min = 70, max = 190, value = 130)
         VitalsLayout.add_widget(VitalsLayout.HRVitals)
-
         #HR value display
         VitalsLayout.HRdisplay = Label(text = '130')
         VitalsLayout.add_widget(VitalsLayout.HRdisplay)
-        #HR value label
+        #HR value updating
+        VitalsLayout.HRVitals.bind(value = self.HRvalue)
+
+
 
         # VitalsLayout.HRVitals = TextInput(text='Heart Rate')
         # VitalsLayout.add_widget(VitalsLayout.HRVitals)
@@ -335,8 +337,6 @@ class Brisesolette(App):
         # VitalsLayout.Diastolic = TextInput(text='Diastolic BP')
         # VitalsLayout.add_widget(VitalsLayout.Diastolic)
         #
-        # # Adding elements
-        # # VitalsLayout.add_widget(logo)
 
         Vitals.add_widget(VitalsLayout)  # Adding layout to Vitals
 

@@ -38,7 +38,7 @@ class WidgetContainer(GridLayout):
         # On the slider object Attach a callback for the attribute named value
         self.brightnessControl.bind(value=self.on_value)
 
-        self.HR = Slider ()
+        # self.HR = Slider()
 
     def on_value(self, instance, brightness):
         self.brightnessValue.text = "%d" % brightness
