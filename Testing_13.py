@@ -39,16 +39,16 @@ LightCyclingStatus = 0
 
 ##Importing and Setup----------------------------------------------------------------
 from kivy.app import App
-from kivy.core.window import Window #Required to toggle fullscreen and set resolution
+from kivy.core.window import Window  # Required to toggle fullscreen and set resolution
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.accordion import Accordion, AccordionItem
 from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.button import Button
-from kivy.clock import Clock
-from kivy.uix.slider import Slider
-from kivy.uix.textinput import TextInput
+from kivy.clock import Clock  # For Scheduling tasks
+from kivy.uix.slider import Slider  # For vitals tab
+from kivy.properties import NumericProperty  # For Vitals tab
 
 Window.fullscreen = True
 Window.show_cursor = False
@@ -313,7 +313,7 @@ class Brisesolette(App):
         VitalsLayout.HRdisplay = Label(text = '130')
         VitalsLayout.add_widget(VitalsLayout.HRdisplay)
         #HR value updating
-        VitalsLayout.HRVitals.bind(value = self.on_value)
+        #VitalsLayout.HRVitals.bind(value = VitalsLayout.HRVitals.on_value)
 
 
 
