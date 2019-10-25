@@ -298,7 +298,7 @@ class Brisesolette(App):
         Vitals = AccordionItem(title='Vitals')
 
         # Setting up grid layout
-        VitalsLayout = GridLayout(cols=6)
+        global VitalsLayout = GridLayout(cols=6)
 
         ##Adding in HR Vitals
         #HR Label
@@ -325,7 +325,8 @@ class Brisesolette(App):
 
     # Updating Vitals tab--------------------------------------------------------------
     def HRValue(self, instance, HR):
-        self.VitalsLayout.HRdisplay.text = "%d" % HR
+        global VitalsLayout
+        VitalsLayout.HRdisplay.text = "%d" % HR
 
 
 
