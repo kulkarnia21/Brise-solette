@@ -313,7 +313,7 @@ class Brisesolette(App):
         VitalsLayout.HRdisplay = Label(text = '130')
         VitalsLayout.add_widget(VitalsLayout.HRdisplay)
         #HR value updating
-        VitalsLayout.HRVitals.bind(value = VitalsLayout.HRValue)
+        VitalsLayout.HRVitals.bind(value = self.HRValue)
 
         # VitalsLayout.HRVitals = TextInput(text='Heart Rate')
         # VitalsLayout.add_widget(VitalsLayout.HRVitals)
