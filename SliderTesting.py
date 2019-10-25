@@ -16,20 +16,16 @@ Window.fullscreen = True
 Window.show_cursor = False
 Window.size = (800, 480)
 
-
 class WidgetContainer(GridLayout):
 
     def __init__(self, **kwargs):
         super(WidgetContainer, self).__init__(**kwargs)
 
-        # 2 columns in grid layout
-
         self.cols = 3
 
         self.brightnessControl = Slider(min=0, max=100)
 
-        # 1st row - one label, one slider
-
+        #one label, one slider
         self.add_widget(Label(text='brightness'))
 
         self.add_widget(self.brightnessControl)
@@ -40,13 +36,12 @@ class WidgetContainer(GridLayout):
         self.add_widget(self.brightnessValue)
 
         # On the slider object Attach a callback for the attribute named value
-
         self.brightnessControl.bind(value=self.on_value)
+
+        self.HR = Slider ()
 
     def on_value(self, instance, brightness):
         self.brightnessValue.text = "%d" % brightness
-
-
 # The app class
 
 class SliderExample(App):
