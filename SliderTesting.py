@@ -10,6 +10,12 @@ from kivy.uix.label import Label
 
 from kivy.properties import NumericProperty
 
+from kivy.core.window import Window #Required to toggle fullscreen and set resolution
+
+Window.fullscreen = True
+Window.show_cursor = False
+Window.size = (800, 480)
+
 
 class WidgetContainer(GridLayout):
 
@@ -18,7 +24,7 @@ class WidgetContainer(GridLayout):
 
         # 2 columns in grid layout
 
-        self.cols = 2
+        self.cols = 4
 
         self.brightnessControl = Slider(min=0, max=100)
 
