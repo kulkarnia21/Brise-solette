@@ -24,7 +24,7 @@ class WidgetContainer(GridLayout):
 
         # 2 columns in grid layout
 
-        self.cols = 4
+        self.cols = 3
 
         self.brightnessControl = Slider(min=0, max=100)
 
@@ -34,10 +34,7 @@ class WidgetContainer(GridLayout):
 
         self.add_widget(self.brightnessControl)
 
-        # 2nd row - one label for caption, one label for slider value
-
-        self.add_widget(Label(text='Slider Value'))
-
+        #Creating brightness Value text box
         self.brightnessValue = Label(text='0')
 
         self.add_widget(self.brightnessValue)
