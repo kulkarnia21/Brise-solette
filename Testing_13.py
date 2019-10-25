@@ -143,8 +143,8 @@ def teststatus():
 # End of function to test all statuses---------------------------------------------
 
 # Updating Vitals tab--------------------------------------------------------------
-def HRValue(self, instance, HR):
-    self.VitalsLayout.HRdisplay.text = "%d" % HR
+def HRValue(VitalsLayout, instance, HR):
+    VitalsLayout.HRdisplay.text = "%d" % HR
 # End of updating vitals tab-------------------------------------------------------
 
 # Define Callback for Toggle-------------------------------------------------------
@@ -315,7 +315,7 @@ class Brisesolette(App):
         VitalsLayout.HRdisplay = Label(text = '130')
         VitalsLayout.add_widget(VitalsLayout.HRdisplay)
         #HR value updating
-        VitalsLayout.HRVitals.bind(value = self.VitalsLayout.HRVitals.on_value)
+        VitalsLayout.HRVitals.bind(value = VitalsLayout.HRVitals.on_value)
 
         # VitalsLayout.HRVitals = TextInput(text='Heart Rate')
         # VitalsLayout.add_widget(VitalsLayout.HRVitals)
