@@ -325,7 +325,7 @@ class Brisesolette(App):
 
     # Updating Vitals tab--------------------------------------------------------------
     def HRValue(self, instance, HR):
-        VitalsLayout.HRdisplay.text = "%d" % HR
+        self.HRdisplay.text = "%d" % HR
 
 
 
