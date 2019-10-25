@@ -144,7 +144,7 @@ def teststatus():
 
 # Define Callback for Toggle-------------------------------------------------------
 #making callback to change value
-def on_value(self, instance, HR):
+def HRValue(self, instance, HR):
     VitalsLayout.HRdisplay.text = "%d" % HR
 
 def press_callback(obj):
@@ -313,11 +313,7 @@ class Brisesolette(App):
         VitalsLayout.HRdisplay = Label(text = '130')
         VitalsLayout.add_widget(VitalsLayout.HRdisplay)
         #HR value updating
-        #VitalsLayout.HRVitals.bind(value = VitalsLayout.HRVitals.on_value)
-
-
-
-
+        VitalsLayout.HRVitals.bind(value = VitalsLayout.HRValue)
 
         # VitalsLayout.HRVitals = TextInput(text='Heart Rate')
         # VitalsLayout.add_widget(VitalsLayout.HRVitals)
