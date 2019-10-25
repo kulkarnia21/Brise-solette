@@ -347,8 +347,8 @@ if __name__ == '__main__':
 
 
 print("Bye Bye!")
-a.digitalWrite(BaseSidesPin, a.LOW)
+a.digitalWrite(BaseSidesPin, a.HIGH)
 a.digitalWrite(BasefbPin, a.LOW)
-a.digitalWrite(TopfbPin, a.LOW)
+a.digitalWrite(TopfbPin, a.HIGH)
 a.digitalWrite(TopPin, a.LOW)
 a.digitalWrite(TopSidesPin, a.LOW)
