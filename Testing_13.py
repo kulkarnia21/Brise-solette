@@ -298,7 +298,8 @@ class Brisesolette(App):
         Vitals = AccordionItem(title='Vitals')
 
         # Setting up grid layout
-        global VitalsLayout = GridLayout(cols=6)
+        global VitalsLayout
+        VitalsLayout = GridLayout(cols=6)
 
         ##Adding in HR Vitals
         #HR Label
