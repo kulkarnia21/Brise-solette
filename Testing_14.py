@@ -327,7 +327,7 @@ class Brisesolette(App):
 
         # Setting up grid layout
         VitalsLayout = GridLayout(cols=6)
-        root.add_widget = VitalsTab()
+        VitalsTab()
         ##Adding in HR Vitals
 
         #HR Label
