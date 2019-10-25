@@ -326,7 +326,6 @@ class Brisesolette(App):
         Vitals = AccordionItem(title='Vitals')
 
         # Setting up grid layout
-        #VitalsLayout = GridLayout(cols=6)
         VitalsTab()
         ##Adding in HR Vitals
 
@@ -365,7 +364,7 @@ class Brisesolette(App):
         # VitalsLayout.add_widget(VitalsLayout.Diastolic)
         #
 
-        Vitals.add_widget(VitalsLayout)  # Adding layout to Vitals
+        #Vitals.add_widget(VitalsLayout)  # Adding layout to Vitals
 
         root.add_widget(Vitals)  # Adding Vitals accordion Tab
 
