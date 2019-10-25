@@ -36,6 +36,11 @@ TopSidesStatus = 0
 # Declaring vitals status
 # True = within range, False = out of range
 HRstatus = True
+RRstatus = True
+Osatstatus = True
+Tempstatus = True
+Sysstatus = True
+Diastatus = True
 
 interval = 3
 timer = 0
@@ -102,7 +107,7 @@ def cycling(dt):
 
 #---------------------------------------------------------------------------
 ##function to test all status
-def teststatus():
+def teststatus(dt):
     global AllStatus
     global BaseSidesStatus
     global BasefbStatus
@@ -162,60 +167,60 @@ def press_callback(obj):
     if(obj.text == 'All'):
         if(obj.state == "down"):
             AllStatus = 1
-            teststatus()
+            #teststatus()
         else:
             AllStatus = 0
-            teststatus()
+            #teststatus()
     # End of All Function Callback-------------------------------------------
     
     # Callback for Top f/b Function
     if(obj.text == 'Top f/b'):
         if(obj.state == "down"):
             TopfbStatus = 1
-            teststatus()
+            #teststatus()
         else:
             TopfbStatus = 0
-            teststatus()
+            #teststatus()
     # End of Top f/b Callback-----------------------------------------------
     
     # Callback for Base f/b Function
     if(obj.text == 'Base f/b'):
         if(obj.state == "down"):
             BasefbStatus = 1
-            teststatus()
+            #teststatus()
         else:
             BasefbStatus = 0
-            teststatus()
+            #teststatus()
     # End of Base f/b Callback----------------------------------------------
     
     #Callback for Top Function
     if (obj.text == 'Top'):
         if(obj.state == "down"):
             TopStatus = 1
-            teststatus()
+            #teststatus()
         else:
             TopStatus = 0
-            teststatus()
+            #teststatus()
     # End of Top Callback---------------------------------------------------
 
     # Callback for Top Sides Function
     if(obj.text == 'Top Sides'):
         if (obj.state == "down"):
             TopSidesStatus = 1
-            teststatus()
+            #teststatus()
         else:
             TopSidesStatus = 0
-            teststatus()
+            #teststatus()
     # End of Top Sides Callback----------------------------------------------
             
     # Callback for Base Sides Function
     if(obj.text == 'Base Sides'):
         if obj.state == "down":
             BaseSidesStatus = 1
-            teststatus()
+            #teststatus()
         else:
             BaseSidesStatus = 0
-            teststatus()
+            #teststatus()
     # End of Base Sides Callback--------------------------------------------
 
     # Callback for Light Cycling
@@ -326,6 +331,7 @@ class Brisesolette(App):
 
         # Scheduled task----------------------------------------------------------
         Clock.schedule_interval(cycling, 1.0)
+        Clock.schedule_interval(teststatus, 0.1)
         return root
 
     # Updating Vitals tab--------------------------------------------------------------
@@ -334,12 +340,11 @@ class Brisesolette(App):
         global HRstatus
         if(HR > 95 and HR < 100):
             HRstatus = True
-            print("HRstatus true")
+            #print("HRstatus true")
         else:
             HRstatus = False
-            print("HRstatus False")
+            #print("HRstatus False")
         VitalsLayout.HRdisplay.text = "%d" % HR
-
 
 
 if __name__ == '__main__':
