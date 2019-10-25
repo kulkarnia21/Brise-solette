@@ -33,6 +33,10 @@ TopfbStatus = 0
 TopStatus = 0
 TopSidesStatus = 0
 
+# Declaring vitals status
+# True = within range, False = out of range
+HRstatus = True
+
 interval = 3
 timer = 0
 LightCyclingStatus = 0
@@ -298,7 +302,7 @@ class Brisesolette(App):
         Vitals = AccordionItem(title='Vitals')
 
         # Setting up grid layout
-        global VitalsLayout
+        #global VitalsLayout
         VitalsLayout = GridLayout(cols=6)
 
         ##Adding in HR Vitals
@@ -327,6 +331,7 @@ class Brisesolette(App):
     # Updating Vitals tab--------------------------------------------------------------
     def HRValue(self, instance, HR):
         global VitalsLayout
+
         VitalsLayout.HRdisplay.text = "%d" % HR
 
 
