@@ -301,7 +301,7 @@ class Brisesolette(App):
         VitalsLayout = GridLayout(cols=6)
 
         #Adding in HR Vitals
-        VitalsLayout.HRlabel = Label(text = "Heart Rate")
+        VitalsLayout.add_widget = Label(text = "Heart Rate")
         VitalsLayout.HRVitals = Slider(min = 70, max = 190, value = 130)
         VitalsLayout.add_widget(VitalsLayout.HRVitals)
         # VitalsLayout.HRVitals = TextInput(text='Heart Rate')
