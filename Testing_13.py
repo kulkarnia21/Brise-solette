@@ -47,6 +47,7 @@ from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.clock import Clock
+from kivy.uix.slider import Slider
 from kivy.uix.textinput import TextInput
 
 Window.fullscreen = True
@@ -303,24 +304,26 @@ class Brisesolette(App):
         VitalsLayout = GridLayout(cols=2)
 
         #Adding in HR Vitals
-        VitalsLayout.HRVitals = TextInput(text='Heart Rate')
+        VitalsLayout.HRVitals = Slider(min = 100, max = 100, value = 50)
         VitalsLayout.add_widget(VitalsLayout.HRVitals)
-
-        #Adding in Temperature
-        VitalsLayout.Temp = TextInput(text = 'Temperature')
-        VitalsLayout.add_widget(VitalsLayout.Temp)
-
-        #Adding in Systolic BP
-        VitalsLayout.Systolic = TextInput(text = 'Systolic BP')
-        VitalsLayout.add_widget(VitalsLayout.Systolic)
+        # VitalsLayout.HRVitals = TextInput(text='Heart Rate')
+        # VitalsLayout.add_widget(VitalsLayout.HRVitals)
 
         #Adding in Respiratory Rate
         VitalsLayout.RRVitals = TextInput(text='Respiratory Rate')
         VitalsLayout.add_widget(VitalsLayout.RRVitals)
 
-        #Adding in Oxygen Saturation
-        VitalsLayout.Osat = TextInput(text = 'Osat')
+        # Adding in Oxygen Saturation
+        VitalsLayout.Osat = TextInput(text='Osat')
         VitalsLayout.add_widget(VitalsLayout.Osat)
+
+        # Adding in Temperature
+        VitalsLayout.Temp = TextInput(text='Temperature')
+        VitalsLayout.add_widget(VitalsLayout.Temp)
+
+        # Adding in Systolic BP
+        VitalsLayout.Systolic = TextInput(text='Systolic BP')
+        VitalsLayout.add_widget(VitalsLayout.Systolic)
 
         # Adding in Diastolic BP
         VitalsLayout.Diastolic = TextInput(text='Diastolic BP')
