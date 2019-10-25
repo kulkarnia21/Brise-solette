@@ -142,11 +142,6 @@ def teststatus():
             
 # End of function to test all statuses---------------------------------------------
 
-# Updating Vitals tab--------------------------------------------------------------
-def HRValue(self, instance, HR):
-    VitalsLayout.HRdisplay.text = "%d" % HR
-# End of updating vitals tab-------------------------------------------------------
-
 # Define Callback for Toggle-------------------------------------------------------
 #making callback to change value
 def press_callback(obj):
@@ -230,8 +225,37 @@ def press_callback(obj):
     # End of Light Cycling Callback-----------------------------------------
 # End of Callback functions
 
+#Vitals tab class
+class VitalsTab(GridLayout):
+    def __init__(self, **kwargs):
+        super(VitalsTab, self).__init__(**kwargs)
+
+        self.cols = 3
+
+        self.brightnessControl = Slider(min=0, max=100)
+
+        #one label, one slider
+        self.add_widget(Label(text='brightness'))
+
+        self.add_widget(self.brightnessControl)
+
+        #Creating brightness Value text box
+        self.brightnessValue = Label(text='0')
+
+        self.add_widget(self.brightnessValue)
+
+        # On the slider object Attach a callback for the attribute named value
+        self.brightnessControl.bind(value=self.on_value)
+
+    def on_value(self, instance, brightness):
+        self.brightnessValue.text = "%d" % brightness
 
 class Brisesolette(App):
+
+    # Updating Vitals tab--------------------------------------------------------------
+    # def HRValue(self, instance, HR):
+    #     VitalsLayout.HRdisplay.text = "%d" % HR
+    # End of updating vitals tab-------------------------------------------------------
     def build(self):
         root = Accordion(orientation='vertical')
 
@@ -275,7 +299,6 @@ class Brisesolette(App):
         ManualControl.add_widget(Layout)
         # Add Accordion Tab
         root.add_widget(ManualControl)
-
         # End of Manual Control Tab---------------------------------------------
         
         
@@ -304,18 +327,19 @@ class Brisesolette(App):
 
         # Setting up grid layout
         VitalsLayout = GridLayout(cols=6)
-
+        root.add_widget = VitalsTab()
         ##Adding in HR Vitals
+
         #HR Label
-        VitalsLayout.add_widget(Label(text = "Heart Rate"))
-        #HR slider
-        VitalsLayout.HRVitals = Slider(min = 70, max = 190, value = 130)
-        VitalsLayout.add_widget(VitalsLayout.HRVitals)
-        #HR value display
-        VitalsLayout.HRdisplay = Label(text = '130')
-        VitalsLayout.add_widget(VitalsLayout.HRdisplay)
+        # VitalsLayout.add_widget(Label(text = "Heart Rate"))
+        # #HR slider
+        # VitalsLayout.HRVitals = Slider(min = 70, max = 190, value = 130)
+        # VitalsLayout.add_widget(VitalsLayout.HRVitals)
+        # #HR value display
+        # VitalsLayout.HRdisplay = Label(text = '130')
+        # VitalsLayout.add_widget(VitalsLayout.HRdisplay)
         #HR value updating
-        VitalsLayout.HRVitals.bind(value = VitalsLayout.HRValue())
+        #VitalsLayout.HRVitals.bind(value = VitalsLayout.HRValue())
 
         # VitalsLayout.HRVitals = TextInput(text='Heart Rate')
         # VitalsLayout.add_widget(VitalsLayout.HRVitals)
