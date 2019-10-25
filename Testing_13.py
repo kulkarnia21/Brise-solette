@@ -310,7 +310,7 @@ class Brisesolette(App):
         VitalsLayout.HRdisplay = Label(text = '130')
         VitalsLayout.add_widget(VitalsLayout.HRdisplay)
         #HR value updating
-        VitalsLayout.HRVitals.bind(value = VItalsLayout.HRvalue)
+        VitalsLayout.HRVitals.bind(value = VitalsLayout.HRvalue)
 
 
 

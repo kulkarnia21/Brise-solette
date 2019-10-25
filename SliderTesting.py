@@ -26,7 +26,7 @@ class WidgetContainer(GridLayout):
         self.brightnessControl = Slider(min=0, max=100)
 
         #one label, one slider
-        # self.add_widget(Label(text='brightness'))
+        self.add_widget(Label(text='brightness'))
 
         self.add_widget(self.brightnessControl)
 
