@@ -302,7 +302,7 @@ class Brisesolette(App):
         Vitals = AccordionItem(title='Vitals')
 
         # Setting up grid layout
-        #global VitalsLayout
+        global VitalsLayout
         VitalsLayout = GridLayout(cols=6)
 
         ##Adding in HR Vitals
@@ -331,7 +331,13 @@ class Brisesolette(App):
     # Updating Vitals tab--------------------------------------------------------------
     def HRValue(self, instance, HR):
         global VitalsLayout
-
+        global HRstatus
+        if(HR > 95 and HR < 100):
+            HRstatus = True
+            print("HRstatus true")
+        else:
+            HRstatus = False
+            print("HRstatus False")
         VitalsLayout.HRdisplay.text = "%d" % HR
 
 
