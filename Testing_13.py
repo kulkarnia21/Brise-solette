@@ -101,7 +101,7 @@ def cycling(dt):
     else:
         #print("Light cycling status is 0")
         Timer = 0
-        teststatus()
+        #teststatus()
 
 #---------------------------------------------------------------------------
 
