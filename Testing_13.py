@@ -132,6 +132,7 @@ def allsystemscheck(dt):
     global Diastatus
 
     if(LightCyclingStatus == 1 and AllStatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0 and HRstatus == True and RRstatus == True and Osatstatus == True and Tempstatus == True and Sysstatus == True and Diastatus == True):
+        print("testing")
     else:
         if(HRstatus == True and RRstatus == True and Osatstatus == True and Tempstatus == True and Sysstatus == True and Diastatus == True):
             teststatus()
