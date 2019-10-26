@@ -132,12 +132,15 @@ def allsystemscheck(dt):
     global Diastatus
 
     if(LightCyclingStatus == 1 and AllStatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0 and HRstatus == True and RRstatus == True and Osatstatus == True and Tempstatus == True and Sysstatus == True and Diastatus == True):
-        print("light cycling is hapenning")
     else:
-        print("do everything else")
-        teststatus()
-
-
+        if(HRstatus == True and RRstatus == True and Osatstatus == True and Tempstatus == True and Sysstatus == True and Diastatus == True):
+            teststatus()
+        else:
+            a.digitalWrite(BaseSidesPin, a.HIGH)
+            a.digitalWrite(BasefbPin, a.HIGH)
+            a.digitalWrite(TopfbPin, a.HIGH)
+            a.digitalWrite(TopPin, a.HIGH)
+            a.digitalWrite(TopSidesPin, a.HIGH)
 #---------------------------------------------------------------------------
 ##function to test all status
 def teststatus():
