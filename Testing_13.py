@@ -142,6 +142,7 @@ def allsystemscheck(dt):
             a.digitalWrite(TopfbPin, a.HIGH)
             a.digitalWrite(TopPin, a.HIGH)
             a.digitalWrite(TopSidesPin, a.HIGH)
+
 #---------------------------------------------------------------------------
 ##function to test all status
 def teststatus():
@@ -374,7 +375,7 @@ class Brisesolette(App):
     def HRValue(self, instance, HR):
         global VitalsLayout
         global HRstatus
-        if(HR > 95 and HR < 100):
+        if(HR > 100 and HR < 160):
             HRstatus = True
             #print("HRstatus true")
         else:
