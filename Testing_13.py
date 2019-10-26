@@ -105,9 +105,30 @@ def cycling(dt):
 
 #---------------------------------------------------------------------------
 
+## Adding recurring task to test everything
+def allsystemscheck(dt):
+    global AllStatus
+    global BaseSidesStatus
+    global BasefbStatus
+    global TopfbStatus
+    global TopStatus
+    global TopSidesStatus
+
+    global LightCyclingStatus
+
+    global HRstatus
+    global RRstatus
+    global Osatstatus
+    global Tempstatus
+    global Sysstatus
+    global Diastatus
+
+    print("Helloooooo")
+    teststatus()
+
 #---------------------------------------------------------------------------
 ##function to test all status
-def teststatus(dt):
+def teststatus():
     global AllStatus
     global BaseSidesStatus
     global BasefbStatus
@@ -121,8 +142,7 @@ def teststatus(dt):
         a.digitalWrite(TopfbPin, a.HIGH)
         a.digitalWrite(TopPin, a.HIGH)
         a.digitalWrite(TopSidesPin, a.HIGH)
-        
-        
+
     else:
         if BaseSidesStatus == 1:
             a.digitalWrite(BaseSidesPin, a.HIGH)
@@ -331,7 +351,7 @@ class Brisesolette(App):
 
         # Scheduled task----------------------------------------------------------
         Clock.schedule_interval(cycling, 1.0)
-        Clock.schedule_interval(teststatus, 0.1)
+        Clock.schedule_interval(allsystemscheck, 0.1)
         return root
 
     # Updating Vitals tab--------------------------------------------------------------
