@@ -484,9 +484,9 @@ class Brisesolette(App):
         global VitalsLayout
         global Diastatus
         if(Dia > 35 and Dia < 53):
-            RRstatus = True
+            Diastatus = True
         else:
-            RRstatus = False
+            Diastatus = False
         VitalsLayout.Diadisplay.text = "%d" % Dia
 
 if __name__ == '__main__':
