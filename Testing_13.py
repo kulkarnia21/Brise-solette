@@ -358,6 +358,18 @@ class Brisesolette(App):
         VitalsLayout.add_widget(VitalsLayout.HRdisplay)
         #HR value updating
         VitalsLayout.HRVitals.bind(value = self.HRValue)
+
+        ##Adding in RR Vitals
+        # RR Label
+        VitalsLayout.add_widget(Label(text="Respiratory Rate"))
+        # RR slider
+        VitalsLayout.RRVitals = Slider(min=15, max=75, value=45)
+        VitalsLayout.add_widget(VitalsLayout.RRVitals)
+        # RR value display
+        VitalsLayout.RRdisplay = Label(text='45')
+        VitalsLayout.add_widget(VitalsLayout.RRdisplay)
+        # RR value updating
+        VitalsLayout.RRVitals.bind(value=self.RRValue)
         # End of updating vitals tab-------------------------------------------------------
 
         Vitals.add_widget(VitalsLayout)  # Adding layout to Vitals
@@ -383,6 +395,14 @@ class Brisesolette(App):
             #print("HRstatus False")
         VitalsLayout.HRdisplay.text = "%d" % HR
 
+    def RRValue(self, instance, RR):
+        global VitalsLayout
+        global RRstatus
+        if(RR > 30 and RR < 60):
+            RRstatus = True
+        else:
+            RRstatus = False
+        VitalsLayout.RRdisplay.text = "%d" % RR
 
 if __name__ == '__main__':
     Brisesolette().run()
