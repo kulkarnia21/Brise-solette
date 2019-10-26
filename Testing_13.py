@@ -26,6 +26,8 @@ a.pinMode(TopfbPin, a.OUTPUT)
 a.pinMode(TopPin, a.OUTPUT)
 a.pinMode(TopSidesPin, a.OUTPUT)
 
+#Declaring sides status
+# 0 is opaque, 1 is clear
 AllStatus = 0
 BaseSidesStatus = 0
 BasefbStatus = 0
@@ -75,7 +77,14 @@ def cycling(dt):
     global TopStatus
     global TopSidesStatus
 
-    if(LightCyclingStatus == 1 and AllStatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0):
+    global HRstatus
+    global RRstatus
+    global Osatstatus
+    global Tempstatus
+    global Sysstatus
+    global Diastatus
+
+    if(LightCyclingStatus == 1 and AllStatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0 and HRstatus == True and RRstatus == True and Osatstatus == True and Tempstatus == True and Sysstatus == True and Diastatus == True):
         #print("Light cycling status is 1")
         if((Timer%interval) == 0):
             #print("interval")
@@ -101,7 +110,6 @@ def cycling(dt):
     else:
         #print("Light cycling status is 0")
         Timer = 0
-        #teststatus()
 
 #---------------------------------------------------------------------------
 
@@ -123,8 +131,12 @@ def allsystemscheck(dt):
     global Sysstatus
     global Diastatus
 
-    print("Helloooooo")
-    teststatus()
+    if(LightCyclingStatus == 1 and AllStatus == 0 and BaseSidesStatus == 0 and BasefbStatus == 0 and TopfbStatus == 0 and TopStatus == 0 and TopSidesStatus == 0 and HRstatus == True and RRstatus == True and Osatstatus == True and Tempstatus == True and Sysstatus == True and Diastatus == True):
+        print("light cycling is hapenning")
+    else:
+        print("do everything else")
+        teststatus()
+
 
 #---------------------------------------------------------------------------
 ##function to test all status
