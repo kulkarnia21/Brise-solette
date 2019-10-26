@@ -349,7 +349,7 @@ class Brisesolette(App):
 
         ##Adding in HR Vitals
         #HR Label
-        VitalsLayout.add_widget(Label(text = "Heart Rate"))
+        VitalsLayout.add_widget(Label(text = "Heart Rate(BPM)"))
         #HR slider
         VitalsLayout.HRVitals = Slider(min = 70, max = 190, value = 130)
         VitalsLayout.add_widget(VitalsLayout.HRVitals)
@@ -370,6 +370,55 @@ class Brisesolette(App):
         VitalsLayout.add_widget(VitalsLayout.RRdisplay)
         # RR value updating
         VitalsLayout.RRVitals.bind(value=self.RRValue)
+
+        ##Adding in Osat Vitals
+        # Osat Label
+        VitalsLayout.add_widget(Label(text="Oxygen Saturation(%)"))
+        # Osat slider
+        VitalsLayout.OsatVitals = Slider(min=50, max=100, value=95)
+        VitalsLayout.add_widget(VitalsLayout.OsatVitals)
+        # Osat value display
+        VitalsLayout.Osatdisplay = Label(text='95')
+        VitalsLayout.add_widget(VitalsLayout.Osatdisplay)
+        # Osat value updating
+        VitalsLayout.OsatVitals.bind(value=self.OsatValue)
+
+        ##Adding in Temp Vitals
+        # Temp Label
+        VitalsLayout.add_widget(Label(text="Temperature(F)"))
+        # Temp slider
+        VitalsLayout.TempVitals = Slider(min=90, max=105, value=97)
+        VitalsLayout.add_widget(VitalsLayout.TempVitals)
+        # Temp value display
+        VitalsLayout.Tempdisplay = Label(text='97')
+        VitalsLayout.add_widget(VitalsLayout.Tempdisplay)
+        # Temp value updating
+        VitalsLayout.TempVitals.bind(value=self.TempValue)
+
+        ##Adding in Sys Vitals
+        # Sys Label
+        VitalsLayout.add_widget(Label(text="Systolic BP(mmHg)"))
+        # Sys slider
+        VitalsLayout.SysVitals = Slider(min=58, max=93, value=76)
+        VitalsLayout.add_widget(VitalsLayout.SysVitals)
+        # Sys value display
+        VitalsLayout.Sysdisplay = Label(text='76')
+        VitalsLayout.add_widget(VitalsLayout.Sysdisplay)
+        # Sys value updating
+        VitalsLayout.SysVitals.bind(value=self.SysValue)
+
+        ##Adding in Dia Vitals
+        # Dia Label
+        VitalsLayout.add_widget(Label(text="Diastolic BP(mmHg)"))
+        # Dia slider
+        VitalsLayout.DiaVitals = Slider(min=26, max=62, value=44)
+        VitalsLayout.add_widget(VitalsLayout.DiaVitals)
+        # Dia value display
+        VitalsLayout.Diadisplay = Label(text='44')
+        VitalsLayout.add_widget(VitalsLayout.Diadisplay)
+        # Dia value updating
+        VitalsLayout.DiaVitals.bind(value=self.DiaValue)
+
         # End of updating vitals tab-------------------------------------------------------
 
         Vitals.add_widget(VitalsLayout)  # Adding layout to Vitals
@@ -403,6 +452,42 @@ class Brisesolette(App):
         else:
             RRstatus = False
         VitalsLayout.RRdisplay.text = "%d" % RR
+
+    def OsatValue(self, instance, Osat):
+        global VitalsLayout
+        global Osatstatus
+        if(Osat > 90):
+            Osatstatus = True
+        else:
+            Osatstatus = False
+        VitalsLayout.Osatdisplay.text = "%d" % Osat
+
+    def TempValue(self, instance, Temp):
+        global VitalsLayout
+        global Tempstatus
+        if(Temp > 95 and Temp < 100):
+            Tempstatus = True
+        else:
+            Tempstatus = False
+        VitalsLayout.Tempdisplay.text = "%d" % Temp
+
+    def SysValue(self, instance, Sys):
+        global VitalsLayout
+        global Sysstatus
+        if(Sys > 67 and Sys < 84):
+            Sysstatus = True
+        else:
+            Sysstatus = False
+        VitalsLayout.RRdisplay.text = "%d" % Sys
+
+    def DiaValue(self, instance, Dia):
+        global VitalsLayout
+        global Diastatus
+        if(Dia > 35 and Dia < 53):
+            RRstatus = True
+        else:
+            RRstatus = False
+        VitalsLayout.Diadisplay.text = "%d" % Dia
 
 if __name__ == '__main__':
     Brisesolette().run()
